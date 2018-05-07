@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace PaginaWeb.Vistas.Menu
 {
-    public partial class Evento : System.Web.UI.Page
+    public partial class EventosInscritos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

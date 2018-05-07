@@ -55,15 +55,15 @@
             <div class="hero-container">
                 <h2>
                     <label>Usuario</label>
-                    <asp:TextBox ID="usua" class="form-control" runat="server" Width="252px" placeholder="Usuario"></asp:TextBox>
+                    <asp:TextBox ID="usua" class="form-control" MaxLength="20" runat="server" Width="252px" placeholder="Usuario"></asp:TextBox>
                     <label>Contraseña</label>
-                    <asp:TextBox ID="contra" class="form-control" TextMode="Password" runat="server" Width="252px" placeholder="*******"></asp:TextBox>
+                    <asp:TextBox ID="contra" class="form-control" MaxLength="20" TextMode="Password" runat="server" Width="252px" placeholder="*******"></asp:TextBox>
                     <label>Nombre</label>
-                    <asp:TextBox ID="nombre" class="form-control" runat="server" Width="252px" placeholder="Nombre"></asp:TextBox>
+                    <asp:TextBox ID="nombre" class="form-control" runat="server" MaxLength="20" Width="252px" placeholder="Nombre"></asp:TextBox>
                     <label>Apellido</label>
-                    <asp:TextBox ID="apellido" class="form-control" runat="server" Width="252px" placeholder="Apellido"></asp:TextBox>
+                    <asp:TextBox ID="apellido" MaxLength="20" class="form-control" runat="server" Width="252px" placeholder="Apellido"></asp:TextBox>
                     <label>Correo</label>
-                    <asp:TextBox ID="correo" class="form-control" runat="server" Width="252px" placeholder="Correo"></asp:TextBox>
+                    <asp:TextBox ID="correo" class="form-control" MaxLength="40" runat="server" Width="252px" placeholder="Correo"></asp:TextBox>
                     <br />
                     <asp:Button ID="registrar" runat="server" EnableTheming="True" class="btn btn-primary btn-round btn-lg btn-block" Text="Registrar" OnClick="Registrar   " />
                 </h2>

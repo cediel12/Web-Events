@@ -10,6 +10,6 @@
 namespace PaginaWeb.Vistas.Menu {
     
     
-    public partial class Evento {
+    public partial class Home {
     }
 }

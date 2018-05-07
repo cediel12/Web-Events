@@ -153,7 +153,7 @@ namespace PaginaWeb.Models
             HtmlGenericControl li = new HtmlGenericControl("li");
             //HtmlGenericControl a = new HtmlGenericControl("a");
 
-            li.InnerHtml = "<a href='" + nombre + "'>" + nombre + "</a>";
+            li.InnerHtml = "<a href='" + Convert.ToString(url) + "'>" + nombre + "</a>";
             //a.InnerHtml = "<i class='" + icono + "'></i>" + nombre;
             //a.Attributes.Add("href", Convert.ToString(url));
 

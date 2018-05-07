@@ -13,10 +13,13 @@ namespace PaginaWeb.Vistas.Login
     public partial class Login : System.Web.UI.Page
     {
         Usuario u = new Usuario();
-        DataTable dt;
-        DataRow dr;
+        DataTable dt,rol;
+        DataRow dr,ro;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            usua.Attributes.Add("autocomplete","off");
+            contra.Attributes.Add("autocomplete", "off");
             try
             {
 
@@ -41,6 +44,21 @@ namespace PaginaWeb.Vistas.Login
                     Session["Nombre"] = dr["nombre"].ToString() + " "+ dr["apellido"].ToString();
                     Session["Estado"] = "OK";
                     Session["IDUSER"]=dr["idusuario"].ToString();
+                    rol = u.ConsultarRol(Session["IDUSER"].ToString());
+                    if (rol.Rows.Count>0)
+                    {
+                        ro = rol.Rows[0];
+                        if(ro["rol_idrol"].ToString()=="1")
+                        {
+                            Session["rol"] = "Administrador";
+                        }else if (ro["rol_idrol"].ToString()=="2")
+                        {
+                            Session["rol"] = "Usuario";
+                        }else
+                        {
+                            Session["rol"] = "Ponente";
+                        }
+                    }
                     Response.Redirect("../Menu/Evento.aspx");
                 }
                 else if (u.ValidarPersona(usua.Text, contra.Text).Rows.Count == 0)

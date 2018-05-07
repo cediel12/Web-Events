@@ -50,9 +50,10 @@
             <div class="hero-container">
                 <h2>
                     <label>Usuario</label>
-                    <asp:TextBox ID="usua" class="form-control" runat="server" Width="252px"></asp:TextBox>
+                    <asp:TextBox ID="usua" class="form-control requered" autocomplete="off" runat="server" Width="252px" MaxLength="20"></asp:TextBox>
+
                     <label>Contraseña</label>
-                    <asp:TextBox ID="contra" class="form-control" TextMode="Password" runat="server" Width="252px"></asp:TextBox>
+                    <asp:TextBox ID="contra" class="form-control requered" TextMode="Password" runat="server" MaxLength="20" Width="252px"></asp:TextBox>
                     <br />
                     <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-primary btn-round btn-lg btn-block" OnClick="IniciarSesion" Text="Iniciar Sesion" />
                 </h2>

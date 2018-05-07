@@ -532,10 +532,12 @@
     <Content Include="Estilos\Otro\img\apple-touch-icon.png" />
     <Content Include="Estilos\Otro\img\calendar.png" />
     <Content Include="Estilos\Otro\img\call-to-action-bg.jpg" />
+    <Content Include="Estilos\Otro\img\favicon.ico" />
     <Content Include="Estilos\Otro\img\favicon.png" />
     <Content Include="Estilos\Otro\img\hero-bg.jpg" />
     <Content Include="Estilos\Otro\img\hero-bg2.jpg" />
     <Content Include="Estilos\Otro\img\logo.png" />
+    <Content Include="Estilos\Otro\img\logo1.png" />
     <Content Include="Estilos\Otro\img\logopagina.ico" />
     <Content Include="Estilos\Otro\img\logopagina.png" />
     <Content Include="Estilos\Otro\img\team-1.jpg" />
@@ -543,12 +545,15 @@
     <Content Include="Estilos\Otro\img\team-3.jpg" />
     <Content Include="Estilos\Otro\img\team-4.jpg" />
     <Content Include="Estilos\Otro\js\main.js" />
-    <Content Include="Menu.aspx" />
+    <Content Include="Estilos\styles.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Estilos\Otro\less\style.less" />
+    <Content Include="Vistas\Inicio\Home.aspx" />
+    <Content Include="Vistas\Inicio\Login.aspx" />
+    <Content Include="Vistas\Inicio\Registro.aspx" />
     <Content Include="Vistas\Menu\Administrador.Master" />
     <Content Include="Estilos\Men\data\addresses.json" />
     <Content Include="Estilos\Men\data\countries.json" />
@@ -565,8 +570,14 @@
     <Content Include="Estilos\Men\vendor\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\component.json" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\cookie.jquery.json" />
-    <Content Include="Vistas\Menu\Site2.Master" />
+    <Content Include="Vistas\Menu\Cronograma.aspx" />
+    <Content Include="Vistas\Menu\CrearEvento.aspx" />
+    <Content Include="Vistas\Menu\EventosInscritos.aspx" />
+    <Content Include="Vistas\Menu\ListaEventos.aspx" />
+    <Content Include="Vistas\Menu\ConsultarUsuario.aspx" />
+    <Content Include="Vistas\Menu\RegistrarUsuario.aspx" />
     <Content Include="Estilos\Otro\img\pestaña" />
+    <Content Include="Vistas\Inicio\Inicio.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -576,53 +587,95 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Vistas\Inicio\Index.aspx" />
     <Content Include="Estilos\Otro\js\ai.0.22.9-build00167.js" />
     <Content Include="Estilos\Otro\js\ai.0.22.9-build00167.min.js" />
     <Content Include="Estilos\Otro\js\index.js" />
-    <Content Include="Vistas\Login\Login.aspx" />
-    <Content Include="Vistas\Registro\Registro.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Vistas\Menu\Evento.aspx" />
-    <Content Include="Vistas\Menu\WebForm1.aspx" />
+    <Content Include="Vistas\Menu\Home.aspx" />
+    <Content Include="Vistas\Menu\MisPagos.aspx" />
+    <Content Include="Vistas\Menu\SubirPago.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Inicio\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\Inicio\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Menu.aspx.cs">
-      <DependentUpon>Menu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Menu.aspx.designer.cs">
-      <DependentUpon>Menu.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\MenuControlador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vistas\Login\Login.aspx.cs">
+    <Compile Include="Vistas\Inicio\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Inicio\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Inicio\Inicio.Master.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Inicio\Inicio.Master.designer.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Inicio\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\Login\Login.aspx.designer.cs">
+    <Compile Include="Vistas\Inicio\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Registro\Registro.aspx.cs">
+    <Compile Include="Vistas\Inicio\Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\Registro\Registro.aspx.designer.cs">
+    <Compile Include="Vistas\Inicio\Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Cronograma.aspx.cs">
+      <DependentUpon>Cronograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Cronograma.aspx.designer.cs">
+      <DependentUpon>Cronograma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\CrearEvento.aspx.cs">
+      <DependentUpon>CrearEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\CrearEvento.aspx.designer.cs">
+      <DependentUpon>CrearEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\EventosInscritos.aspx.cs">
+      <DependentUpon>EventosInscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\EventosInscritos.aspx.designer.cs">
+      <DependentUpon>EventosInscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\ListaEventos.aspx.cs">
+      <DependentUpon>ListaEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\ListaEventos.aspx.designer.cs">
+      <DependentUpon>ListaEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\ConsultarUsuario.aspx.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\ConsultarUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\RegistrarUsuario.aspx.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\RegistrarUsuario.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\Administrador.Master.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
@@ -631,26 +684,26 @@
     <Compile Include="Vistas\Menu\Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Menu\Evento.aspx.cs">
-      <DependentUpon>Evento.aspx</DependentUpon>
+    <Compile Include="Vistas\Menu\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\Menu\Evento.aspx.designer.cs">
-      <DependentUpon>Evento.aspx</DependentUpon>
+    <Compile Include="Vistas\Menu\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Menu\Site2.Master.cs">
-      <DependentUpon>Site2.Master</DependentUpon>
+    <Compile Include="Vistas\Menu\MisPagos.aspx.cs">
+      <DependentUpon>MisPagos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\Menu\Site2.Master.designer.cs">
-      <DependentUpon>Site2.Master</DependentUpon>
+    <Compile Include="Vistas\Menu\MisPagos.aspx.designer.cs">
+      <DependentUpon>MisPagos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Menu\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Vistas\Menu\SubirPago.aspx.cs">
+      <DependentUpon>SubirPago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\Menu\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Vistas\Menu\SubirPago.aspx.designer.cs">
+      <DependentUpon>SubirPago.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
