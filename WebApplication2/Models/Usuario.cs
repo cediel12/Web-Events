@@ -57,22 +57,29 @@ namespace WebProgramacion.Models
             sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "')";
             return co.RealizarTransaccion(sql);
         }
-        public bool crearevento(string nombre, string fehca, string hora, string nombrerec, string tiporecurso, string digitar, string duracion, string tipo, string fechafin)
+        public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo,int rol )
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`crear_evento`('" + nombre + "','" + fehca + "','" + hora + "','" + nombrerec + "','" + tiporecurso + "','" + digitar + "','" + duracion + "','" + tipo + "','" + fechafin + "')";
+            sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ")";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar, string tipolugar, string digital, string duracion)
+        {
+            string[] sql = new string[1];
+            sql[0] = "CALL `web`.`crear_eventoAdmin`('" + nombre + "','" + fechainicio + "','" + fechafin + "','" + hora + "','" + lugar + "','" + tipolugar + "','" + digital + "','" + duracion + "')";
             return co.RealizarTransaccion(sql);
         }
 
         public DataTable menu(string idCuenta)
         {
+
             string sql = "select menu.`idMenu`,menu.Titulo,menu.Icono,vista.idVista,vista.nombre,vista.url,vista.icono,vista.Menu_idMenu  from menu inner join vista on menu.`idMenu`=vista.Menu_idMenu inner join rol_vista on vista.idVista = rol_vista.vista_idVista inner join rol on rol.idRol = rol_vista.rol_idRol inner join usuario_rol on usuario_rol.Rol_idRol = rol.idRol inner join usuario on usuario.idusuario = usuario_rol.Usuario_idUsuario where usuario.idusuario =" + idCuenta + "; ";
             return co.EjecutarConsulta(sql, CommandType.Text);
         }
         
-        public DataTable consultarevento(string nombre)
+        public DataTable consultarnombreusuario(string nombre)
         {
-            string sql = "SELECT * FROM evento WHERE nombre = '" + nombre + "';";
+            string sql = "SELECT * FROM usuario WHERE usuario = '" + nombre + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
         }
 

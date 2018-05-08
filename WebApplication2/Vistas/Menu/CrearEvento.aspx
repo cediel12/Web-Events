@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="CrearEvento.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.CrearEvento" %>
+﻿<%@ Page EnableEventvalidation="false" Title="" Language="C#" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="CrearEvento.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.CrearEvento" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../../Estilos/styles.css" rel="stylesheet" />
     <div class="container" id="advanced-search-form">
-        <h2>Crear Evento</h2>
-        <form>
+        <h2>Registra Nuevo Usuario</h2>
+        <from>
             <div class="form-group">
                 <label for="first-name">Nombre</label>
                 <asp:TextBox ID="nombre" class="form-control" runat="server"  placeholder="Nombre Evento"></asp:TextBox>
@@ -39,9 +39,8 @@
             <div class="form-group">
                 <label for="education">Duracion</label>
                 <asp:TextBox ID="duracion" class="form-control" runat="server"  placeholder="Duracion"></asp:TextBox>
-            </div>
-            <div class="clearfix"></div>
-            <asp:Button ID="registrar" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Crear Evento" OnClick="CrearEvent" />
-        </form>
+            </div><div class="clearfix"></div>
+            <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Registrar" OnClick="Registrar" />
+                </from>
     </div>
 </asp:Content>

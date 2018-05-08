@@ -18,15 +18,18 @@ namespace PaginaWeb.Vistas.Menu
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
-            if (Session["Estado"].ToString() == "OK")
+            try
             {
-                MenuControlador me = new MenuControlador();
-                Usuario u = new Usuario();
-                me.CargarMenu(Session["IDUSER"].ToString(), menudinamico);
+                if (Session["Estado"].ToString() == "OK")
+                {
+                    MenuControlador me = new MenuControlador();
+                    Usuario u = new Usuario();
+                    me.CargarMenu(Session["IDUSER"].ToString(), menudinamico);
+
+                }
 
             }
-            else
+            catch
             {
                 Response.Redirect("../Inicio/Login.aspx");
             }

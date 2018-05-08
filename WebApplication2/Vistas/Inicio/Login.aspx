@@ -14,6 +14,8 @@
                 </asp:RequiredFieldValidator>--%>
                 <br />
                 <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-primary btn-round btn-lg btn-block" OnClick="IniciarSesion" Text="Iniciar Sesion" />
+                <asp:Button ID="olvidoclave" runat="server" EnableTheming="True" class="btn btn-link" Text="Olvido su contraseña?" OnClick="recordarclave" />
+
             </h2>
         </div>
     </section>

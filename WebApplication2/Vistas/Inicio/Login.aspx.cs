@@ -76,5 +76,10 @@ namespace PaginaWeb.Vistas.Inicio
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Datos ingresados no validos');", true);
             }
         }
+
+        protected void recordarclave(object sender, EventArgs e)
+        {
+            Response.Redirect("OlvidoClave.aspx");
+        }
     }
 }

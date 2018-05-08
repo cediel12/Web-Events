@@ -553,7 +553,9 @@
     <Content Include="Estilos\Otro\less\style.less" />
     <Content Include="Vistas\Inicio\Home.aspx" />
     <Content Include="Vistas\Inicio\Login.aspx" />
+    <Content Include="Vistas\Inicio\OlvidoClave.aspx" />
     <Content Include="Vistas\Inicio\Registro.aspx" />
+    <Content Include="Vistas\Menu\ActualizarUsuario.aspx" />
     <Content Include="Vistas\Menu\Administrador.Master" />
     <Content Include="Estilos\Men\data\addresses.json" />
     <Content Include="Estilos\Men\data\countries.json" />
@@ -572,9 +574,13 @@
     <Content Include="Estilos\Men\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Vistas\Menu\Cronograma.aspx" />
     <Content Include="Vistas\Menu\CrearEvento.aspx" />
+    <Content Include="Vistas\Menu\DeshabilitarEvento.aspx" />
+    <Content Include="Vistas\Menu\EliminarEvento.aspx" />
+    <Content Include="Vistas\Menu\EliminarUsuario.aspx" />
     <Content Include="Vistas\Menu\EventosInscritos.aspx" />
     <Content Include="Vistas\Menu\ListaEventos.aspx" />
     <Content Include="Vistas\Menu\ConsultarUsuario.aspx" />
+    <Content Include="Vistas\Menu\ModificarEvento.aspx" />
     <Content Include="Vistas\Menu\RegistrarUsuario.aspx" />
     <Content Include="Estilos\Otro\img\pestaña" />
     <Content Include="Vistas\Inicio\Inicio.Master" />
@@ -628,12 +634,26 @@
     <Compile Include="Vistas\Inicio\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Inicio\OlvidoClave.aspx.cs">
+      <DependentUpon>OlvidoClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Inicio\OlvidoClave.aspx.designer.cs">
+      <DependentUpon>OlvidoClave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Inicio\Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\Inicio\Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\ActualizarUsuario.aspx.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\ActualizarUsuario.aspx.designer.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\Cronograma.aspx.cs">
       <DependentUpon>Cronograma.aspx</DependentUpon>
@@ -648,6 +668,27 @@
     </Compile>
     <Compile Include="Vistas\Menu\CrearEvento.aspx.designer.cs">
       <DependentUpon>CrearEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\DeshabilitarEvento.aspx.cs">
+      <DependentUpon>DeshabilitarEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\DeshabilitarEvento.aspx.designer.cs">
+      <DependentUpon>DeshabilitarEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\EliminarEvento.aspx.cs">
+      <DependentUpon>EliminarEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\EliminarEvento.aspx.designer.cs">
+      <DependentUpon>EliminarEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\EliminarUsuario.aspx.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\EliminarUsuario.aspx.designer.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\EventosInscritos.aspx.cs">
       <DependentUpon>EventosInscritos.aspx</DependentUpon>
@@ -669,6 +710,13 @@
     </Compile>
     <Compile Include="Vistas\Menu\ConsultarUsuario.aspx.designer.cs">
       <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\ModificarEvento.aspx.cs">
+      <DependentUpon>ModificarEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\ModificarEvento.aspx.designer.cs">
+      <DependentUpon>ModificarEvento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>

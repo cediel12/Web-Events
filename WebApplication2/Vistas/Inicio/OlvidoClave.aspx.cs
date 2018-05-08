@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,29 +9,35 @@ using WebProgramacion.Models;
 
 namespace PaginaWeb.Vistas.Inicio
 {
-    public partial class Registro : System.Web.UI.Page
+    public partial class OlvidoClave : System.Web.UI.Page
     {
-        Usuario u = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void Registrar(object sender, EventArgs e)
+        Usuario u = new Usuario();
+        DataTable dt;
+        DataRow dr, ro;
+        string usuar, contra, corre;
+        public void RestaurarClave(object sender, EventArgs e)
         {
-            if (u.registrar(usua.Text, contra.Text, nombre.Text, apellido.Text, correo.Text) == true)
+            dt = u.consultarnombreusuario(usua.Text);
+            if (dt.Rows.Count > 0)
             {
-                EnviarCorreo(correo.Text);
-                //Response.Redirect("../Inicio/Login.aspx");
-                
+                dr = dt.Rows[0];
+                usuar = dr["usuario"].ToString();
+                contra = dr["contraseña"].ToString();
+                corre = dr["correo"].ToString();
+                //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + usuar + contra + corre + "');", true);
+
+                Restablecerclave(corre,usuar, contra);
             }
             else
             {
-
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Usuario no encontrado');", true);
             }
         }
-
-        
-        public void EnviarCorreo(string correo)
+        public void Restablecerclave(string correo, string usua, string contra)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
 
@@ -45,14 +50,14 @@ namespace PaginaWeb.Vistas.Inicio
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
             //Asunto
-            mmsg.Subject = "Registro Completo";
+            mmsg.Subject = "Restablecer Contraseña";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             //Direccion de correo electronico que queremos que reciba una copia del mensaje
             //mmsg.Bcc.Add("destinatariocopia@servidordominio.com"); //Opcional
 
             //Cuerpo del Mensaje
-            mmsg.Body = "Su registro fue exitoso";
+            mmsg.Body = "Sus datos de inicio de sesion son.  Usuario: " + usua + "  Contraseña: " + contra;
             mmsg.BodyEncoding = System.Text.Encoding.UTF8;
             mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
 
@@ -84,12 +89,17 @@ namespace PaginaWeb.Vistas.Inicio
             {
 
                 cliente.Send(mmsg);
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El mensaje se envio');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Se envio un correo con la informacion de ingreso');", true);
             }
             catch (System.Net.Mail.SmtpException)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El mensaje no se envio');", true);
             }
+        }
+
+        protected void recordarclave(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

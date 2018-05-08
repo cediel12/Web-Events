@@ -50,6 +50,7 @@
                             <th class="th-lg"><a>Tipo<i class="fa fa-sort ml-1"></i></a></th>
                             <th class="th-lg"><a>Computadores<i class="fa fa-sort ml-1"></i></a></th>
                             <th class="th-lg"><a>Duracion<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Registrar<i class="fa fa-sort ml-1"></i></a></th>
 
                         </tr>
                     </thead>
@@ -60,9 +61,11 @@
                         <% for (int i = 0;i< dtconsulta.Rows.Count;i++)
                             {
                                 drconsulta = dtconsulta.Rows[i];
+                                string idpe = drconsulta["idevento"].ToString().ToUpper();
                                 %>
                         <tr>
-                            <td><%=(i+1) %></td>
+
+                            <td><%=drconsulta["idevento"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["nombre"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["fechainicio"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["fechafin"].ToString().ToUpper() %></td>
@@ -71,6 +74,8 @@
                             <td><%=drconsulta["tipo"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["digital"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["duracion"].ToString().ToUpper() %></td>
+                            <td><button type="button" id=idpe class="btn btn-link">Inscrbir</button></td>
+
                         </tr>
                             <%} %>
                     </tbody>
