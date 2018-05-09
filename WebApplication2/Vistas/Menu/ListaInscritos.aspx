@@ -38,9 +38,9 @@
                     <thead>
                         <tr>
                             <th class="th-lg"><a>ID<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Tema<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Fecha<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Hora <i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Nombre<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Apellido<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Usuario <i class="fa fa-sort ml-1"></i></a></th>
 
 
                         </tr>
@@ -57,9 +57,9 @@
                         <tr>
 
                             <td><%=(i+1) %></td>
-                            <td><%=drconsulta["tema"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["fecha"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["tiempo"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["nombre"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["apellido"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["usuario"].ToString() %></td>
 
                         </tr>
                         <%} %>

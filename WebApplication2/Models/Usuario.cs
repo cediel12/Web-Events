@@ -39,7 +39,7 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
-        
+
         public DataTable ConsultarUsuarios()
         {
             string sql = "SELECT * FROM usuario;";
@@ -64,7 +64,7 @@ namespace WebProgramacion.Models
             sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "')";
             return co.RealizarTransaccion(sql);
         }
-        public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo,int rol )
+        public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo, int rol)
         {
             string[] sql = new string[1];
             sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ")";
@@ -73,7 +73,7 @@ namespace WebProgramacion.Models
         public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`crear_eventoAdmin`('" + nombre + "','" + fechainicio + "','" + fechafin + "','" + hora + "','" + lugar  + "')";
+            sql[0] = "CALL `web`.`crear_eventoAdmin`('" + nombre + "','" + fechainicio + "','" + fechafin + "','" + hora + "','" + lugar + "')";
             return co.RealizarTransaccion(sql);
         }
 
@@ -83,7 +83,7 @@ namespace WebProgramacion.Models
             string sql = "select menu.`idMenu`,menu.Titulo,menu.Icono,vista.idVista,vista.nombre,vista.url,vista.icono,vista.Menu_idMenu  from menu inner join vista on menu.`idMenu`=vista.Menu_idMenu inner join rol_vista on vista.idVista = rol_vista.vista_idVista inner join rol on rol.idRol = rol_vista.rol_idRol inner join usuario_rol on usuario_rol.Rol_idRol = rol.idRol inner join usuario on usuario.idusuario = usuario_rol.Usuario_idUsuario where usuario.idusuario =" + idCuenta + "; ";
             return co.EjecutarConsulta(sql, CommandType.Text);
         }
-        
+
         public DataTable consultarnombreusuario(string nombre)
         {
             string sql = "SELECT * FROM usuario WHERE usuario = '" + nombre + "';";
@@ -107,7 +107,12 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable consutaruserevento(int a)
+        {
+            string sql = "select evento_usuario.idevento_usuario,usuario.nombre, usuario.apellido, usuario.usuario from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
+            return co.EjecutarConsulta(sql, CommandType.Text);
 
+        }
     }
 
 }

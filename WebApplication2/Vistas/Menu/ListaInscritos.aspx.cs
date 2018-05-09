@@ -20,7 +20,7 @@ namespace PaginaWeb.Vistas.Menu
         {
             int id = Convert.ToInt32(Session["verusertema"].ToString());
             //int id = Convert.ToInt32(Session["se"].ToString());
-            dtconsulta = u.consultartemas(id);
+            dtconsulta = u.consutaruserevento(id);
             if (dtconsulta.Rows.Count > 0)
             {
                 drconsulta = dtconsulta.Rows[0];
