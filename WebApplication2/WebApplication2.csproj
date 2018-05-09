@@ -580,6 +580,7 @@
     <Content Include="Vistas\Menu\EventosInscritos.aspx" />
     <Content Include="Vistas\Menu\ListaEventos.aspx" />
     <Content Include="Vistas\Menu\ConsultarUsuario.aspx" />
+    <Content Include="Vistas\Menu\ListaInscritos.aspx" />
     <Content Include="Vistas\Menu\ModificarEvento.aspx" />
     <Content Include="Vistas\Menu\RegistrarUsuario.aspx" />
     <Content Include="Estilos\Otro\img\pestaña" />
@@ -601,14 +602,14 @@
     <Content Include="Vistas\Menu\Home.aspx" />
     <Content Include="Vistas\Menu\MisPagos.aspx" />
     <Content Include="Vistas\Menu\SubirPago.aspx" />
+    <Content Include="Vistas\Menu\TemasEvento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Parameter.cs" />
-    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\Calendario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\MenuControlador.cs" />
@@ -711,6 +712,13 @@
     <Compile Include="Vistas\Menu\ConsultarUsuario.aspx.designer.cs">
       <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Menu\ListaInscritos.aspx.cs">
+      <DependentUpon>ListaInscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\ListaInscritos.aspx.designer.cs">
+      <DependentUpon>ListaInscritos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Menu\ModificarEvento.aspx.cs">
       <DependentUpon>ModificarEvento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -752,6 +760,13 @@
     </Compile>
     <Compile Include="Vistas\Menu\SubirPago.aspx.designer.cs">
       <DependentUpon>SubirPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\TemasEvento.aspx.cs">
+      <DependentUpon>TemasEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\TemasEvento.aspx.designer.cs">
+      <DependentUpon>TemasEvento.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@ namespace PaginaWeb.Vistas.Menu
         protected void Registrar(object sender, EventArgs e)
         {
 
-            if (u.crearevento(nombre.Text, fechainicio.Text, fechafin.Text, hora.Text, lugar.Text, tipolugar.Text, digital.Text, duracion.Text) == true)
+            if (u.crearevento(nombre.Text, fechainicio.Text, fechafin.Text, hora.Text, lugar.Text) == true)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento se creo correctamente');", true);
             }
@@ -29,5 +29,6 @@ namespace PaginaWeb.Vistas.Menu
             }
             
         }
+        
     }
 }

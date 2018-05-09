@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" enableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="ConsultarUsuario.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.ConsultarUsuario" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="TemasEvento.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.TemasEvento" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style type="text/css">
         .table-wrapper {
@@ -17,16 +17,12 @@
         <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
             <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-th-large mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-columns mt-0"></i></button>
+                <a href="ListaEventos.aspx" class="white-text mx-3">Volver</a>
             </div>
 
-            <a href="" class="white-text mx-3">Lista de Usuarios</a>
-
+            <a class="white-text mx-3">Temas</a>
             <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-pencil mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-remove mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-info-circle mt-0"></i></button>
+                
             </div>
 
         </div>
@@ -42,28 +38,31 @@
                     <thead>
                         <tr>
                             <th class="th-lg"><a>ID<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Nombre<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Apellido <i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Correo <i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Usuario<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Tema<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Fecha<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Hora <i class="fa fa-sort ml-1"></i></a></th>
+
+
                         </tr>
                     </thead>
                     <!--Table head-->
 
                     <!--Table body-->
-                    <tbody>                        
-                        <% for (int i = 0;i< dtconsulta.Rows.Count;i++)
+                    <tbody>
+                        <% 
+                            for (int i = 0; i < dtconsulta.Rows.Count; i++)
                             {
                                 drconsulta = dtconsulta.Rows[i];
-                                %>
+                        %>
                         <tr>
-                            <td><%=drconsulta["idusuario"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["nombre"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["apellido"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["correo"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["usuario"].ToString() %></td>
+
+                            <td><%=(i+1) %></td>
+                            <td><%=drconsulta["tema"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["fecha"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["tiempo"].ToString().ToUpper() %></td>
+
                         </tr>
-                            <%} %>
+                        <%} %>
                     </tbody>
                     <!--Table body-->
                 </table>

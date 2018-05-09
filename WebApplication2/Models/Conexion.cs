@@ -61,53 +61,53 @@ namespace WebProgramacion.Models
         }
 
        
-        public bool Transaction(Transaction[] list)
-        {
-            bool state = false;
-            MySqlConnection conn = new MySqlConnection();
-            MySqlCommand cmd = null;
-            conn = ConexionMySQL();
+        //public bool Transaction(Transaction[] list)
+        //{
+        //    bool state = false;
+        //    MySqlConnection conn = new MySqlConnection();
+        //    MySqlCommand cmd = null;
+        //    conn = ConexionMySQL();
 
-            MySqlTransaction Transa = conn.BeginTransaction();
+        //    MySqlTransaction Transa = conn.BeginTransaction();
 
-            try
-            {
-                for (int i = 0; i < list.Length; i++)
-                {
-                    if (list[i] == null) continue;
+        //    try
+        //    {
+        //        for (int i = 0; i < list.Length; i++)
+        //        {
+        //            if (list[i] == null) continue;
 
-                    cmd = new MySqlCommand(list[i].Procedure, conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    foreach (Parameter obj in list[i].Parameters)
-                    {
-                        cmd.Parameters.Add(obj.Name, obj.Value);
+        //            cmd = new MySqlCommand(list[i].Procedure, conn);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            foreach (Parameter obj in list[i].Parameters)
+        //            {
+        //                cmd.Parameters.Add(obj.Name, obj.Value);
 
-                    }
-                    cmd.Transaction = Transa;
-                    cmd.ExecuteNonQuery();
-                }
-                Transa.Commit();
-                conn.Close();
-                conn.Dispose();
-                Transa.Dispose();
-                state = true;
-            }
-            catch (Exception)
-            {
-                Transa.Rollback();
-                conn.Close();
-                conn.Dispose();
-                state = false;
-            }
-            finally
-            {
-                if (cmd != null)
-                {
-                    cmd.Dispose();
-                }
-            }
-            return state;
-        }
+        //            }
+        //            cmd.Transaction = Transa;
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        Transa.Commit();
+        //        conn.Close();
+        //        conn.Dispose();
+        //        Transa.Dispose();
+        //        state = true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        Transa.Rollback();
+        //        conn.Close();
+        //        conn.Dispose();
+        //        state = false;
+        //    }
+        //    finally
+        //    {
+        //        if (cmd != null)
+        //        {
+        //            cmd.Dispose();
+        //        }
+        //    }
+        //    return state;
+        //}
 
         public bool RealizarTransaccion(string[] cadena)
         {

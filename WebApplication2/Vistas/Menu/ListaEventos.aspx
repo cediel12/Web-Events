@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="ListaEventos.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.ListaEventos" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="ListaEventos.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.ListaEventos" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style type="text/css">
         .table-wrapper {
@@ -15,20 +16,12 @@
 
         <!--Card image-->
         <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-
             <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-th-large mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-columns mt-0"></i></button>
             </div>
 
-            <a href="" class="white-text mx-3">Eventos</a>
-
+            <a class="white-text mx-3">Eventos</a>
             <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-pencil mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-remove mt-0"></i></button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-info-circle mt-0"></i></button>
             </div>
-
         </div>
         <!--/Card image-->
 
@@ -47,25 +40,70 @@
                             <th class="th-lg"><a>Fecha Fin <i class="fa fa-sort ml-1"></i></a></th>
                             <th class="th-lg"><a>Hora <i class="fa fa-sort ml-1"></i></a></th>
                             <th class="th-lg"><a>Lugar<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Tipo<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Computadores<i class="fa fa-sort ml-1"></i></a></th>
-                            <th class="th-lg"><a>Duracion<i class="fa fa-sort ml-1"></i></a></th>
                             <th class="th-lg"><a>Registrar<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Temas<i class="fa fa-sort ml-1"></i></a></th>
 
+                            <%
+                                if (Session["rol"].ToString() == "Administrador")
+                                {%>
+                            <th class="th-lg"><a>Crear Tema<i class="fa fa-sort ml-1"></i></a></th>
+                            <th class="th-lg"><a>Lista de Inscritos<i class="fa fa-sort ml-1"></i></a></th>
+                            <% }
+                            %>
                         </tr>
                     </thead>
                     <!--Table head-->
 
                     <!--Table body-->
-                    <tbody>                        
-                        <% for (int i = 0;i< dtconsulta.Rows.Count;i++)
+                    <tbody>
+                        <asp:ListView runat="server" ID="lista">
+                            <ItemTemplate>
+                                <tr>
+
+                                    <td><%=crece++ %></td>
+                                    <td><%#Eval("nombre") %></td>
+                                    <td><%#Eval("fechainicio") %></td>
+                                    <td><%#Eval("fechafin") %></td>
+                                    <td><%#Eval("hora") %></td>
+                                    <td><%#Eval("tipo") %></td>
+                                    <td>
+                                        <asp:LinkButton runat="server" OnCommand="Unnamed_Command" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="registrar">
+                                            Registrar
+                                        </asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton runat="server" OnCommand="vertemas" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="ver">
+                                            Ver
+                                        </asp:LinkButton>
+                                    </td>
+                                    <%
+                                        if (Session["rol"].ToString() == "Administrador")
+                                        {%>
+                                    <td>
+                                        <asp:LinkButton runat="server" OnCommand="creartema" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="creartema">
+                                            Crear
+                                        </asp:LinkButton>                                        
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton runat="server" OnCommand="veruser" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="listausereventos">
+                                            Ver
+                                        </asp:LinkButton>
+                                    </td>
+                                    <% }
+                                    %>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+
+                        <%--<% 
+                            for (int i = 0; i < dtconsulta.Rows.Count; i++)
                             {
                                 drconsulta = dtconsulta.Rows[i];
-                                string idpe = drconsulta["idevento"].ToString().ToUpper();
-                                %>
+                                idpe = drconsulta["idevento"].ToString().ToUpper();
+                        %>
                         <tr>
 
-                            <td><%=drconsulta["idevento"].ToString().ToUpper() %></td>
+                            <td><%=(i+1) %></td>
                             <td><%=drconsulta["nombre"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["fechainicio"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["fechafin"].ToString().ToUpper() %></td>
@@ -74,10 +112,17 @@
                             <td><%=drconsulta["tipo"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["digital"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["duracion"].ToString().ToUpper() %></td>
-                            <td><button type="button" id=idpe class="btn btn-link">Inscrbir</button></td>
+                            <%--<td>
+                                <asp:Button ID="button" runat="server" EnableTheming="True" class="btn btn-link" Text="Registrar"  />
+                            </td>--%
+                            <td>
+                                <button runat="server" onserverclick="inscribir" id='' class="btn btn-link">Inscrbir</button></td>
+                            <td>
+                                <asp:Button ID="button1" runat="server" EnableTheming="True" class="btn btn-link" Text="Ver" />
+                            </td>
 
                         </tr>
-                            <%} %>
+                        <%} %>--%>
                     </tbody>
                     <!--Table body-->
                 </table>

@@ -58,33 +58,6 @@ namespace PaginaWeb.Vistas.Menu {
         protected global::System.Web.UI.WebControls.TextBox lugar;
         
         /// <summary>
-        /// Control tipolugar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tipolugar;
-        
-        /// <summary>
-        /// Control digital.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox digital;
-        
-        /// <summary>
-        /// Control duracion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox duracion;
-        
-        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>
