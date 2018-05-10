@@ -54,9 +54,15 @@ namespace WebProgramacion.Models
         }
         public DataTable ConsultarEventos()
         {
-            string sql = "select evento.idevento,evento.fechafin, evento.nombre, evento.fechainicio,evento.hora,recurso.tipo from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso;";
+            string sql = "select evento.idevento,evento.fechafin, evento.nombre_e, evento.fechainicio,evento.hora,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario;";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
+        }
+        public bool creartema(string nombre, string fecha, string hora, int idevento)
+        {
+            string[] sql = new string[1];
+            sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento + ")";
+            return co.RealizarTransaccion(sql);
         }
         public bool registrar(string usuario, string contrasena, string nombre, string apellido, string correo)
         {
@@ -70,10 +76,10 @@ namespace WebProgramacion.Models
             sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ")";
             return co.RealizarTransaccion(sql);
         }
-        public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar)
+        public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar, int iduser)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`crear_eventoAdmin`('" + nombre + "','" + fechainicio + "','" + fechafin + "','" + hora + "','" + lugar + "')";
+            sql[0] = "CALL `web`.`crear_eventoAdmin`('" + nombre + "','" + fechainicio + "','" + fechafin + "','" + hora + "','" + lugar + "'," + iduser + ")";
             return co.RealizarTransaccion(sql);
         }
 

@@ -13,7 +13,10 @@ namespace PaginaWeb.Vistas.Menu
         Usuario u = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Estado"].ToString() != "OK")
+            {
+                Response.Redirect("../Inicio/Login.aspx");
+            }
         }
         protected void Registrar(object sender, EventArgs e)
         {

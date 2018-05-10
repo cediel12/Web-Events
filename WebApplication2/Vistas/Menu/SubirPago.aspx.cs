@@ -11,7 +11,10 @@ namespace PaginaWeb.Vistas.Menu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Estado"].ToString() != "OK")
+            {
+                Response.Redirect("../Inicio/Login.aspx");
+            }
         }
     }
 }

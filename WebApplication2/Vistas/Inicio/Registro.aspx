@@ -5,15 +5,15 @@
         <div class="hero-container">
             <h2>
                 <from runat="server">
-                    <label>Usuario</label>
+                    <label>Usuario *</label>
                      <asp:TextBox ID="usua" class="form-control" MaxLength="20" runat="server" Width="252px" placeholder="Usuario"></asp:TextBox>
-                <label>Contraseña</label>
+                <label>Contraseña *</label>
                 <asp:TextBox ID="contra" class="form-control" MaxLength="20" TextMode="Password" runat="server" Width="252px" placeholder="*******"></asp:TextBox>
-                <label>Nombre</label>
+                <label>Nombre *</label>
                 <asp:TextBox ID="nombre" class="form-control" runat="server" MaxLength="20" Width="252px" placeholder="Nombre"></asp:TextBox>
-                <label>Apellido</label>
+                <label>Apellido *</label>
                 <asp:TextBox ID="apellido" MaxLength="20" class="form-control" runat="server" Width="252px" placeholder="Apellido"></asp:TextBox>
-                <label>Correo</label>
+                <label>Correo *</label>
                 <asp:TextBox ID="correo" class="form-control" MaxLength="40" runat="server" Width="252px" placeholder="Correo"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="revEmailAddress" runat="server" SetFocusOnError="true"
                     Display="None" ControlToValidate="correo" resourceKey="revEmailAddress"

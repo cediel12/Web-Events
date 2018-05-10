@@ -18,6 +18,10 @@ namespace PaginaWeb.Vistas.Menu
         public int a;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Estado"].ToString() != "OK")
+            {
+                Response.Redirect("../Inicio/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 lista.DataSource = u.ConsultarEventos();
@@ -64,7 +68,7 @@ namespace PaginaWeb.Vistas.Menu
                 Session["creartema"] = Convert.ToInt32(e.CommandArgument.ToString());
                 a = Convert.ToInt32(e.CommandArgument.ToString());
 
-                Response.Redirect("TemasEvento.aspx");
+                Response.Redirect("CrearTema.aspx");
             }
         }
         public void veruser(object sender, CommandEventArgs e)

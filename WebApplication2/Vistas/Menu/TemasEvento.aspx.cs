@@ -17,8 +17,11 @@ namespace PaginaWeb.Vistas.Menu
         ListaEventos li = new ListaEventos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Estado"].ToString() != "OK")
+            {
+                Response.Redirect("../Inicio/Login.aspx");
+            }
             int id = Convert.ToInt32(Session["idtema"].ToString());
-            //int id = Convert.ToInt32(Session["se"].ToString());
             dtconsulta = u.consultartemas(id);
             if (dtconsulta.Rows.Count > 0)
             {

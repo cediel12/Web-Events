@@ -525,6 +525,7 @@
     <Content Include="Estilos\Men\vendor\waypoints\waypoints.min.js" />
     <Content Include="Estilos\Men\vendor\wow\wow.js" />
     <Content Include="Estilos\Men\vendor\wow\wow.min.js" />
+    <Content Include="Estilos\Otro\css\compiled.min268f.css" />
     <Content Include="Estilos\Otro\css\learn.css" />
     <Content Include="Estilos\Otro\css\scss-files.txt" />
     <Content Include="Estilos\Otro\css\style.css" />
@@ -572,6 +573,7 @@
     <Content Include="Estilos\Men\vendor\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\component.json" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="Vistas\Menu\CrearTema.aspx" />
     <Content Include="Vistas\Menu\Cronograma.aspx" />
     <Content Include="Vistas\Menu\CrearEvento.aspx" />
     <Content Include="Vistas\Menu\DeshabilitarEvento.aspx" />
@@ -655,6 +657,13 @@
     </Compile>
     <Compile Include="Vistas\Menu\ActualizarUsuario.aspx.designer.cs">
       <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\CrearTema.aspx.cs">
+      <DependentUpon>CrearTema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\CrearTema.aspx.designer.cs">
+      <DependentUpon>CrearTema.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\Cronograma.aspx.cs">
       <DependentUpon>Cronograma.aspx</DependentUpon>

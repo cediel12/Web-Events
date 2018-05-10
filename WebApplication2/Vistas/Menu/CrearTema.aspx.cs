@@ -9,7 +9,7 @@ using WebProgramacion.Models;
 
 namespace PaginaWeb.Vistas.Menu
 {
-    public partial class CrearEvento : System.Web.UI.Page
+    public partial class CrearTema : System.Web.UI.Page
     {
         Usuario u = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
@@ -19,7 +19,7 @@ namespace PaginaWeb.Vistas.Menu
         protected void Registrar(object sender, EventArgs e)
         {
 
-            if (u.crearevento(nombre.Text, fechainicio.Text, fechafin.Text, hora.Text, lugar.Text,Convert.ToInt32(Session["IDUSER"].ToString())) == true)
+            if (u.creartema(nombre.Text, fechainicio.Text, hora.Text, Convert.ToInt32(Session["creartema"].ToString())) == true)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento se creo correctamente');", true);
             }
@@ -27,8 +27,7 @@ namespace PaginaWeb.Vistas.Menu
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento no se creo correctamente');", true);
             }
-            
+
         }
-        
     }
 }
