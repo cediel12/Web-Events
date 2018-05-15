@@ -46,6 +46,18 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable Consultaruser(string username)
+        {
+            string sql = "select * from usuario where usuario.usuario='"+ username + "';";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable consultarponentes()
+        {
+            string sql = "select usuario.usuario,usuario.idusuario,usuario.nombre, usuario.apellido from usuario inner join usuario_rol on usuario_rol.usuario_idusuario=usuario.idusuario inner join rol on rol.idrol=usuario_rol.rol_idrol and rol.idrol=3";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
         public DataTable consultartemas(int a)
         {
             string sql = "select tema.idtema, tema.tema,tema.fecha,tema.tiempo from tema inner join tema_evento on tema_evento.tema_idtema=tema.idtema inner join evento on tema_evento.evento_idevento=evento.idevento and evento.idevento=" + a;
@@ -58,10 +70,10 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
-        public bool creartema(string nombre, string fecha, string hora, int idevento)
+        public bool creartema(string nombre, string fecha, string hora, int idevento, int iduser)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento + ")";
+            sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento +"," +iduser +")";
             return co.RealizarTransaccion(sql);
         }
         public bool registrar(string usuario, string contrasena, string nombre, string apellido, string correo)

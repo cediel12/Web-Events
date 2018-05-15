@@ -3,7 +3,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../../Estilos/styles.css" rel="stylesheet" />
     <div class="container" id="advanced-search-form">
         <h2>Registra Nuevo Usuario</h2>

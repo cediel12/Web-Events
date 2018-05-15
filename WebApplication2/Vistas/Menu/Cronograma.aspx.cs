@@ -12,9 +12,11 @@ namespace PaginaWeb.Vistas.Menu
     public partial class Cronograma : System.Web.UI.Page
     {
         public DataTable dtconsulta = new DataTable();
+        public DataTable dtemas = new DataTable();
         public DataRow drconsulta;
+        public DataRow drtemas;
+        public int eventoid;
         Usuario u = new Usuario();
-        ListaEventos li = new ListaEventos();
         protected void Page_Load(object sender, EventArgs e)
         {
             dtconsulta = u.ConsultarEventos();
@@ -22,6 +24,16 @@ namespace PaginaWeb.Vistas.Menu
             {
                 drconsulta = dtconsulta.Rows[0];
             }
+        }
+        public DataTable vertemas()
+        {
+            eventoid = Convert.ToInt32(Session["eventoid"]);
+            dtemas = u.consultartemas(eventoid);
+            if (dtemas.Rows.Count > 0)
+            {
+                drtemas = dtemas.Rows[0];
+            }
+            return dtemas;
         }
     }
 }

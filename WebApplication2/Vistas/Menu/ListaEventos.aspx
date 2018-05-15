@@ -3,8 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <link rel='stylesheet' id='compiled.css-css' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0" <link rel='stylesheet' id='compiled.css-css'  href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
 
-    <!--Top Table UI-->
-    <!--Top Table UI-->
+   
 
     <div class="card card-cascade narrower">
 
@@ -34,9 +33,9 @@
                             <th class="th-lg"><a>Fecha Fin</a></th>
                             <th class="th-lg"><a>Hora</a></th>
                             <th class="th-lg"><a>Lugar</a></th>
+                            <th class="th-lg"><a>Usuario</a></th>
                             <th class="th-lg"><a>Registrar</a></th>
                             <th class="th-lg"><a>Temas</a></th>
-                            <th class="th-lg"><a>Usuario</a></th>
 
 
                             <%
@@ -55,7 +54,6 @@
                         <asp:ListView runat="server" ID="lista">
                             <ItemTemplate>
                                 <tr>
-
                                     <td><%=crece++ %></td>
                                     <td><%#Eval("nombre_e") %></td>
                                     <td><%#Eval("fechainicio") %></td>

@@ -40,7 +40,7 @@ namespace PaginaWeb.Vistas.Menu
             Session["Estado"] = "1";
             Session["IDUSER"] = "1";
             Session["rol"] = "1";
-            Response.Redirect("../Inicio/Home.aspx");
+            Response.Redirect("../Inicio/Login.aspx");
         }
     }
 }

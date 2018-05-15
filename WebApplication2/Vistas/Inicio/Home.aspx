@@ -1,13 +1,92 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Inicio/Inicio.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="PaginaWeb.Vistas.Inicio.Home" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+    <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+    <meta name="author" content="Pedro Botelho for Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="../../Estilos/Stuuning/css/demo.css" rel="stylesheet" />
+    <link href="../../Estilos/Stuuning/css/slicebox.css" rel="stylesheet" />
+    <link href="../../Estilos/Stuuning/css/custom.css" rel="stylesheet" />
+    <script src="../../Estilos/Stuuning/js/modernizr.custom.46884.js" type="text/javascript"></script>
+
     <section id="hero">
         <div class="hero-container">
-            <h1>Bienvenido a Eventium</h1>
-            <h2>El mejor sitio para estar informado sobre los eventos de la Universidad de la Amazonia</h2>
+            <h1></h1>
             <a href="Login.aspx" class="btn-get-started">Iniciar Sesion</a>
-        </div>
-    </section>
+            <div class="wrapper">
+                <ul id="sb-slider" class="sb-slider">
 
+
+                    <% 
+                        for (int i = 0; i < dtconsulta.Rows.Count; i++)
+                        {
+                            drconsulta = dtconsulta.Rows[i];
+                    %>
+                    <li>
+                        <a>
+                            <img src="../../Estilos/Stuuning/images/<%=(i+1) %>.jpg" alt="image2" /></a>
+                        <div class="sb-description">
+                            <h3><%=drconsulta["nombre_e"].ToString().ToUpper() %></h3>
+                        </div>
+                    </li>
+                    <%} %>
+                </ul>
+
+                <div id="shadow" class="shadow"></div>
+
+                <div id="nav-arrows" class="nav-arrows">
+                    <a href="#">Next</a>
+                    <a href="#">Previous</a>
+                </div>
+            </div>
+
+            <div class="container">
+            </div>
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="../../Estilos/Stuuning/js/jquery.slicebox.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                var Page = (function () {
+                    var $navArrows = $('#nav-arrows').hide(),
+                        $shadow = $('#shadow').hide(),
+                        slicebox = $('#sb-slider').slicebox({
+                            onReady: function () {
+
+                                $navArrows.show();
+                                $shadow.show();
+                            },
+                            orientation: 'r',
+                            cuboidsRandom: true,
+                            disperseFactor: 30
+                        }),
+                        init = function () {
+                            initEvents();
+                        },
+                        initEvents = function () {
+
+                            // add navigation events
+                            $navArrows.children(':first').on('click', function () {
+
+                                slicebox.next();
+                                return false;
+                            });
+
+                            $navArrows.children(':last').on('click', function () {
+                                slicebox.previous();
+                                return false;
+                            });
+                        };
+                    return { init: init };
+                })();
+                Page.init();
+            });
+		</script>
+    </section>
     <%--desarrolladores--%>
 
     <section id="team">
@@ -20,7 +99,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-1.jpg" alt=""></div>
+                            <img src="img/team-1.jpg" alt="">
+                        </div>
                         <h4>Victor Cediel</h4>
                         <span>Desarrollador - Director</span>
                         <div class="social">
@@ -35,7 +115,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-2.jpg" alt=""></div>
+                            <img src="img/team-2.jpg" alt="">
+                        </div>
                         <h4>Nicolas Cardenas</h4>
                         <span>Desarrollador - Director</span>
                         <div class="social">
@@ -50,7 +131,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-3.jpg" alt=""></div>
+                            <img src="img/team-3.jpg" alt="">
+                        </div>
                         <h4>Rubem Ordoñez</h4>
                         <span>Desarrollador - Director</span>
                         <div class="social">
@@ -65,7 +147,7 @@
 
         </div>
     </section>
-    
+
 
     <%--contacto--%>
 
@@ -87,9 +169,11 @@
                     <div class="info">
                         <div>
                             <i class="fa fa-map-marker"></i>
-                            <p>#4-1 a, Cl. 17 #4451
+                            <p>
+                                #4-1 a, Cl. 17 #4451
                                 <br>
-                                Florencia, Caquetá</p>
+                                Florencia, Caquetá
+                            </p>
                         </div>
 
                         <div>
@@ -135,7 +219,8 @@
                                 <div class="validation"></div>
                             </div>
                             <div class="text-center">
-                                <button type="submit">Enviar Mensaje</button></div>
+                                <button type="submit">Enviar Mensaje</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -144,5 +229,4 @@
 
         </div>
     </section>
-    
 </asp:Content>

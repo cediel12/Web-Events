@@ -1,72 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="Cronograma.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.Cronograma" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-    <link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
-    <div id="wrapper">
-        <div id="myScheduler"></div>
+    <link rel='stylesheet' id='compiled.css-css' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0"
+    <<link rel='stylesheet' id='compiled.css-css'  href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
+        <% for (int i = 0; i < dtconsulta.Rows.Count; i++)
+            {
+                drconsulta = dtconsulta.Rows[i];
+        %>
+    <div class="card card-cascade narrower">
+        <%--</div>--%>
+        <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <div>
+            </div>
+            <a class="white-text mx-3"><%=drconsulta["nombre_e"].ToString().ToUpper() %></a>
+             <%= Session["eventoid"] = drconsulta["idevento"].ToString().ToUpper()%>
+
+            <div>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th class="th-lg"><a>ID</a></th>
+                            <th class="th-lg"><a>Tema </a></th>
+                            <th class="th-lg"><a>Fecha </a></th>
+                            <th class="th-lg"><a>Hora  </a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% dtemas = vertemas();
+                            for (int j = 0; j < dtemas.Rows.Count; j++)
+                            {
+                                drtemas = dtemas.Rows[j];
+                                %>
+                        <tr>
+                            <td><%=(i+1) %></td>
+                            <td><%=drtemas["tema"].ToString().ToUpper() %></td>
+                            <td><%=drtemas["fecha"].ToString().ToUpper() %></td>
+                            <td><%=drtemas["tiempo"].ToString().ToUpper() %></td>
+                        </tr>
+                            <%} %>
+                        <tr>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <hr class="my-0">
+        </div>
+        <%--</div>--%>
     </div>
-    <script>
-        YUI().use(
-  'aui-scheduler',
-  function (Y) {
-      var events = [
-        {
-            
-            content: '<%=drconsulta["nombre"].ToString().ToUpperInvariant() %>',
-            endDate: new Date(2018, 1, 5, 23, 59),
-            startDate: new Date(2018, 1, 5, 0)
-        },
-        {
-            content: 'MultipleDays',
-            endDate: new Date(2018, 1, 8),
-            startDate: new Date(2018, 1, 4)
-        },
-        {
-            content: 'Disabled',
-            disabled: true,
-            endDate: new Date(2018, 1, 8, 5),
-            startDate: new Date(2018, 1, 8, 1)
-        },
-        {
-            content: 'Meeting',
-            endDate: new Date(2018, 1, 7, 7),
-            meeting: true,
-            startDate: new Date(2018, 1, 7, 3)
-        },
-        {
-            color: '#88D',
-            content: 'Overlap',
-            endDate: new Date(2018, 1, 5, 4),
-            startDate: new Date(2018, 1, 5, 1)
-        },
-        {
-            content: 'Reminder',
-            endDate: new Date(2018, 1, 4, 4),
-            reminder: true,
-            startDate: new Date(2018, 1, 4, 0)
-        }
-      ];
-
-      var agendaView = new Y.SchedulerAgendaView();
-      var dayView = new Y.SchedulerDayView();
-      var eventRecorder = new Y.SchedulerEventRecorder();
-      var monthView = new Y.SchedulerMonthView();
-      var weekView = new Y.SchedulerWeekView();
-
-      new Y.Scheduler(
-        {
-            activeView: weekView,
-            boundingBox: '#myScheduler',
-            date: new Date(2018, 5, 10),
-            eventRecorder: eventRecorder,
-            items: events,
-            render: true,
-            views: [dayView, weekView, monthView, agendaView]
-        }
-      );
-  }
-);
-    </script>
-
+        <%} %>
+    <%--</div>--%>
 </asp:Content>

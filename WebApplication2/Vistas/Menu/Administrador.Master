@@ -47,12 +47,12 @@
                                 <!-- Navbar Header-->
                                 <div class="navbar-header">
                                     <!-- Navbar Brand -->
-                                    <a href="index.html" class="navbar-brand">
+                                    <a href="Home.aspx" class="navbar-brand">
                                         <div class="brand-text brand-big"><span>Eventium </span></div>
                                         <div class="brand-text brand-small"><strong>E</strong></div>
                                     </a>
                                     <!-- Toggle Button-->
-                                    <a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                                    <a id="toggle-btn" href="Home.aspx" class="menu-btn active"><span></span><span></span><span></span></a>
                                 </div>
                                 <!-- Navbar Menu -->
                                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -83,9 +83,10 @@
                         <!-- Sidebar Navidation Menus-->
                         <span class="heading">Menu</span>
                         <div class="side-navbar" id="menudinamico" runat="server">
+                            <li class="active"><a href="Home.aspx"><i class="icon-home"></i>Home </a></li>
+
                         </div>
                         <%--<ul class="list-unstyled">
-                            <li class="active"><a href="index.html"><i class="icon-home"></i>Home </a></li>
                             <li><a href="tables.html"><i class="icon-grid"></i>Tables </a></li>
                             <li><a href="charts.html"><i class="fa fa-bar-chart"></i>Charts </a></li>
                             <li><a href="forms.html"><i class="icon-padnote"></i>Forms </a></li>
@@ -99,6 +100,7 @@
                             </li>
                             <li><a href="login.html"><i class="icon-interface-windows"></i>Login page </a></li>
                         </ul>--%>
+
                     </nav>
                     <div class="content-inner">
                         <!-- Page Header-->
