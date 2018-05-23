@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using WebProgramacion.Models;
 
@@ -21,15 +22,12 @@ namespace PaginaWeb.Vistas.Inicio
         {
             if (u.registrar(usua.Text, contra.Text, nombre.Text, apellido.Text, correo.Text) == true)
             {
-                
+
                 Response.Redirect("../Inicio/Login.aspx");
-                
-            }
-            else
-            {
 
             }
-        }        
-        
+
+        }
+
     }
 }
