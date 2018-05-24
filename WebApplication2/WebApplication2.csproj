@@ -672,6 +672,7 @@
     <Content Include="Vistas\Menu\SubirPago.aspx" />
     <Content Include="Vistas\Menu\TemasEvento.aspx" />
     <Content Include="Vistas\Reportes\Reporte.aspx" />
+    <Content Include="Vistas\Reportes\ReporteEvent.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -696,6 +697,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventoReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\UsuariosInscritos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosInscritos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Vistas\Inicio\Home.aspx.cs">
@@ -866,9 +873,17 @@
     <Compile Include="Vistas\Reportes\Reporte.aspx.designer.cs">
       <DependentUpon>Reporte.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Reportes\ReporteEvent.aspx.cs">
+      <DependentUpon>ReporteEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reportes\ReporteEvent.aspx.designer.cs">
+      <DependentUpon>ReporteEvent.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="aspnet_client\" />
     <Folder Include="Estilos\Men\vendor\font-awesome\less\" />
     <Folder Include="Estilos\Men\vendor\font-awesome\scss\" />
   </ItemGroup>
@@ -880,6 +895,10 @@
     <EmbeddedResource Include="Reportes\EventoReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EventoReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\UsuariosInscritos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UsuariosInscritos.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

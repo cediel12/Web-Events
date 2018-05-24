@@ -15,6 +15,8 @@
                 <asp:TextBox ID="apellido" MaxLength="20" class="form-control" runat="server" Width="252px" placeholder="Apellido"></asp:TextBox>
                 <label>Correo *</label>
                 <asp:TextBox ID="correo" class="form-control" MaxLength="40" runat="server" Width="252px" placeholder="Correo"></asp:TextBox>
+                <label>Cedula *</label>
+                <asp:TextBox ID="cedula" class="form-control" MaxLength="40" runat="server" Width="252px" placeholder="Numero de Identificacion"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="revEmailAddress" runat="server" SetFocusOnError="true"
                     Display="None" ControlToValidate="correo" resourceKey="revEmailAddress"
                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="register"></asp:RegularExpressionValidator>

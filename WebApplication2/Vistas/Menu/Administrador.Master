@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="Administrador.Master.cs" Inherits="PaginaWeb.Vistas.Menu.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Administrador.Master.cs" Inherits="PaginaWeb.Vistas.Menu.Site1" %>
 
 <!DOCTYPE html>
 
@@ -82,9 +82,10 @@
                         </div>
                         <!-- Sidebar Navidation Menus-->
                         <span class="heading">Menu</span>
-                        <div class="side-navbar" id="menudinamico" runat="server">
-                            <li class="active"><a href="Home.aspx"><i class="icon-home"></i>Home </a></li>
-
+                        <div class="side-navbar"  >
+                            <ul class="list-unstyled" id="menudinamico" runat="server">
+                                <li ><a href="../Menu/Home.aspx"><i class="menu-icon fa fa-home"></i>Home </a></li>
+                            </ul>
                         </div>
                         <%--<ul class="list-unstyled">
                             <li><a href="tables.html"><i class="icon-grid"></i>Tables </a></li>
@@ -100,7 +101,6 @@
                             </li>
                             <li><a href="login.html"><i class="icon-interface-windows"></i>Login page </a></li>
                         </ul>--%>
-
                     </nav>
                     <div class="content-inner">
                         <!-- Page Header-->

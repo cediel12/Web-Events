@@ -52,6 +52,12 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable consultareventopornombre(string username)
+        {
+            string sql = "SELECT evento.idevento, evento.nombre_e from evento where evento.nombre_e='" + username + "';";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
         public DataTable consultarponentes()
         {
             string sql = "select usuario.usuario,usuario.idusuario,usuario.nombre, usuario.apellido from usuario inner join usuario_rol on usuario_rol.usuario_idusuario=usuario.idusuario inner join rol on rol.idrol=usuario_rol.rol_idrol and rol.idrol=3";
@@ -60,13 +66,13 @@ namespace WebProgramacion.Models
         }
         public DataTable consultartemas(int a)
         {
-            string sql = "select tema.idtema, tema.tema,tema.fecha,tema.tiempo from tema inner join tema_evento on tema_evento.tema_idtema=tema.idtema inner join evento on tema_evento.evento_idevento=evento.idevento and evento.idevento=" + a;
+            string sql = "select tema.idtema, tema.tema,date_format(tema.fecha,' %d-%c-%Y') as fechatema, time_format(tema.tiempo, '%h:%i %p') as horatema,usuario.nombre, usuario.apellido from tema_evento inner join tema on tema_evento.tema_idtema=tema.idtema left join tema_usuario on tema_usuario.tema_idtema=tema.idtema left join usuario on usuario.idusuario=tema_usuario.usuario_idusuario where tema_evento.evento_idevento=" + a;
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
         public DataTable ConsultarEventos()
         {
-            string sql = "select evento.idevento,evento.fechafin, evento.nombre_e, evento.fechainicio,evento.hora,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario;";
+            string sql = "select evento.idevento,date_format(evento.fechafin,' %d-%c-%Y') as fechafin , evento.nombre_e,date_format(evento.fechainicio, ' %d-%c-%Y') as fechainicio,time_format(evento.hora, '%h:%i %p') as horaevento,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario and evento.fechainicio > curdate();";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -76,16 +82,16 @@ namespace WebProgramacion.Models
             sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento +"," +iduser +")";
             return co.RealizarTransaccion(sql);
         }
-        public bool registrar(string usuario, string contrasena, string nombre, string apellido, string correo)
+        public bool registrar(string usuario, string contrasena, string nombre, string apellido, string correo, int cedula)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "')";
+            sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo +","+ cedula+ "')";
             return co.RealizarTransaccion(sql);
         }
-        public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo, int rol)
+        public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo, int rol, int cedula)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ")";
+            sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ","+ cedula + ")";
             return co.RealizarTransaccion(sql);
         }
         public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar, int iduser)
@@ -127,7 +133,7 @@ namespace WebProgramacion.Models
         }
         public DataTable consutaruserevento(int a)
         {
-            string sql = "select evento_usuario.idevento_usuario,usuario.nombre, usuario.apellido, usuario.usuario from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
+            string sql = "select evento_usuario.idevento_usuario,usuario.nombre, usuario.apellido, usuario.usuario, usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }

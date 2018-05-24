@@ -81,7 +81,7 @@ namespace PaginaWeb.Models
         {
             this.id = Convert.ToInt32(it["idMenu"].ToString());
             this.Nombre = it["Titulo"].ToString();
-            this.Icono = it["Icono"].ToString();
+            this.Icono = it["icono"].ToString();
         }
 
         public HtmlGenericControl CrearMenu()
@@ -92,7 +92,7 @@ namespace PaginaWeb.Models
 
 
 
-            a.InnerHtml = "<i class='icon-interface-windows'></i>" + Nombre;
+            a.InnerHtml = "<i class='"+ Icono +"'></i>" + Nombre;
             a.Attributes.Add("href", "#"+ id);
             a.Attributes.Add("class", "collapsed");
             a.Attributes.Add("aria-expanded", "fasle");

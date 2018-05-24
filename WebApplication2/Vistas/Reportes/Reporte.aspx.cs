@@ -30,5 +30,9 @@ namespace PaginaWeb.Vistas.Reportes
             CrystalReportViewer1.Height = 200;
             CrystalReportViewer1.Width = 400;
         }
+        protected void Buscar(object sender, EventArgs e)
+        {
+
+        }
     }
 }

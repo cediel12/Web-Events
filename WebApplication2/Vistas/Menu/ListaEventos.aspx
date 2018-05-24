@@ -58,7 +58,7 @@
                                     <td><%#Eval("nombre_e") %></td>
                                     <td><%#Eval("fechainicio") %></td>
                                     <td><%#Eval("fechafin") %></td>
-                                    <td><%#Eval("hora") %></td>
+                                    <td><%#Eval("horaevento") %></td>
                                     <td><%#Eval("tipo") %></td>
                                     <td><%#Eval("nombre") %></td>
 

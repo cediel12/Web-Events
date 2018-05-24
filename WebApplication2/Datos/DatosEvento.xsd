@@ -12,13 +12,22 @@
   <xs:element name="DatosEvento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosEvento" msprop:Generator_UserDSName="DatosEvento">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="evento" msprop:Generator_TableClassName="eventoDataTable" msprop:Generator_TableVarName="tableevento" msprop:Generator_TablePropName="evento" msprop:Generator_RowDeletingName="eventoRowDeleting" msprop:Generator_RowChangingName="eventoRowChanging" msprop:Generator_RowEvHandlerName="eventoRowChangeEventHandler" msprop:Generator_RowDeletedName="eventoRowDeleted" msprop:Generator_UserTableName="evento" msprop:Generator_RowChangedName="eventoRowChanged" msprop:Generator_RowEvArgName="eventoRowChangeEvent" msprop:Generator_RowClassName="eventoRow">
+        <xs:element name="evento" msprop:Generator_TableClassName="eventoDataTable" msprop:Generator_TableVarName="tableevento" msprop:Generator_RowChangedName="eventoRowChanged" msprop:Generator_TablePropName="evento" msprop:Generator_RowDeletingName="eventoRowDeleting" msprop:Generator_RowChangingName="eventoRowChanging" msprop:Generator_RowEvHandlerName="eventoRowChangeEventHandler" msprop:Generator_RowDeletedName="eventoRowDeleted" msprop:Generator_RowClassName="eventoRow" msprop:Generator_UserTableName="evento" msprop:Generator_RowEvArgName="eventoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre_e" msprop:Generator_ColumnVarNameInTable="columnnombre_e" msprop:Generator_ColumnPropNameInRow="nombre_e" msprop:Generator_ColumnPropNameInTable="nombre_eColumn" msprop:Generator_UserColumnName="nombre_e" type="xs:string" minOccurs="0" />
               <xs:element name="fechainicio" msprop:Generator_ColumnVarNameInTable="columnfechainicio" msprop:Generator_ColumnPropNameInRow="fechainicio" msprop:Generator_ColumnPropNameInTable="fechainicioColumn" msprop:Generator_UserColumnName="fechainicio" type="xs:string" minOccurs="0" />
               <xs:element name="fechafin" msprop:Generator_ColumnVarNameInTable="columnfechafin" msprop:Generator_ColumnPropNameInRow="fechafin" msprop:Generator_ColumnPropNameInTable="fechafinColumn" msprop:Generator_UserColumnName="fechafin" type="xs:string" minOccurs="0" />
-              <xs:element name="hora" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_UserColumnName="hora" type="xs:string" minOccurs="0" />
+              <xs:element name="horaevento" msprop:Generator_ColumnVarNameInTable="columnhoraevento" msprop:Generator_ColumnPropNameInRow="horaevento" msprop:Generator_ColumnPropNameInTable="horaeventoColumn" msprop:Generator_UserColumnName="horaevento" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usuario" msprop:Generator_TableClassName="usuarioDataTable" msprop:Generator_TableVarName="tableusuario" msprop:Generator_TablePropName="usuario" msprop:Generator_RowDeletingName="usuarioRowDeleting" msprop:Generator_RowChangingName="usuarioRowChanging" msprop:Generator_RowEvHandlerName="usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="usuarioRowDeleted" msprop:Generator_UserTableName="usuario" msprop:Generator_RowChangedName="usuarioRowChanged" msprop:Generator_RowEvArgName="usuarioRowChangeEvent" msprop:Generator_RowClassName="usuarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" type="xs:string" minOccurs="0" />
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

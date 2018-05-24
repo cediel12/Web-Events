@@ -20,7 +20,7 @@ namespace PaginaWeb.Vistas.Inicio
         }
         protected void Registrar(object sender, EventArgs e)
         {
-            if (u.registrar(usua.Text, contra.Text, nombre.Text, apellido.Text, correo.Text) == true)
+            if (u.registrar(usua.Text, contra.Text, nombre.Text, apellido.Text, correo.Text,Convert.ToInt32(cedula.Text)) == true)
             {
 
                 Response.Redirect("../Inicio/Login.aspx");

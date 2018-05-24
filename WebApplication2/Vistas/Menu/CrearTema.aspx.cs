@@ -31,7 +31,7 @@ namespace PaginaWeb.Vistas.Menu
         protected void Registrar(object sender, EventArgs e)
         {
             Char delimiter = ' ';
-            int a=0;
+            int a = 0;
             if (ListBox1.SelectedIndex > -1)
             {
                 string tex = ListBox1.SelectedItem.Text;
@@ -43,15 +43,20 @@ namespace PaginaWeb.Vistas.Menu
                     druser = dtuser.Rows[0];
                     a = Convert.ToInt32(druser["idusuario"]);
                 }
-            }
-            if (u.creartema(nombre.Text, fechainicio.Text, hora.Text, Convert.ToInt32(Session["creartema"].ToString()), a) == true)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento se creo correctamente');", true);
+                if (u.creartema(nombre.Text, fechainicio.Text, hora.Text, Convert.ToInt32(Session["creartema"].ToString()), a) == true)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El Tema se creo correctamente');", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El Tema no se creo correctamente');", true);
+                }
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento no se creo correctamente');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Seleccione un ponente Valido');", true);
             }
+
 
         }
     }

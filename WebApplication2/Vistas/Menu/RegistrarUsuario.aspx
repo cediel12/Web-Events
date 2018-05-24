@@ -20,16 +20,20 @@
                 <asp:TextBox ID="nombre" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="number">Apellido</label>
+                <label for="country">Apellido</label>
                 <asp:TextBox ID="apellido" class="form-control" runat="server" placeholder="Apellido"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="age">Correo</label>
+                <label for="email">Correo</label>
                 <asp:TextBox ID="correo" class="form-control" runat="server" placeholder="Correo"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="email">Rol</label>
+                <label for="country">Rol</label>
                 <asp:TextBox ID="rol" class="form-control" runat="server" placeholder="Rol"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="country">Cedula</label>
+                <asp:TextBox ID="cedula" class="form-control" runat="server" placeholder="Identificacion"></asp:TextBox>
             </div>
             <div class="clearfix"></div>
             <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Registrar" OnClick="Registrar" />

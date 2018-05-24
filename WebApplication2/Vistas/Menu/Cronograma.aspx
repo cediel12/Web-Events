@@ -6,6 +6,7 @@
         <% for (int i = 0; i < dtconsulta.Rows.Count; i++)
             {
                 drconsulta = dtconsulta.Rows[i];
+                Session["eventoid"] = drconsulta["idevento"].ToString().ToUpper();
         %>
     <div class="card card-cascade narrower">
         <%--</div>--%>
@@ -13,7 +14,6 @@
             <div>
             </div>
             <a class="white-text mx-3"><%=drconsulta["nombre_e"].ToString().ToUpper() %></a>
-             <%= Session["eventoid"] = drconsulta["idevento"].ToString().ToUpper()%>
 
             <div>
             </div>
@@ -27,6 +27,7 @@
                             <th class="th-lg"><a>Tema </a></th>
                             <th class="th-lg"><a>Fecha </a></th>
                             <th class="th-lg"><a>Hora  </a></th>
+                            <th class="th-lg"><a>Ponente  </a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,8 +40,9 @@
                         <tr>
                             <td><%=(i+1) %></td>
                             <td><%=drtemas["tema"].ToString().ToUpper() %></td>
-                            <td><%=drtemas["fecha"].ToString().ToUpper() %></td>
-                            <td><%=drtemas["tiempo"].ToString().ToUpper() %></td>
+                            <td><%=drtemas["fechatema"].ToString().ToUpper() %></td>
+                            <td><%=drtemas["horatema"].ToString().ToUpper() %></td>
+                            <td><%= drtemas["nombre"].ToString().ToUpper() + " "+ drtemas["apellido"].ToString().ToUpper()  %></td>
                         </tr>
                             <%} %>
                         <tr>

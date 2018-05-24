@@ -52,8 +52,8 @@
 
                             <td><%=(i+1) %></td>
                             <td><%=drconsulta["tema"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["fecha"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["tiempo"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["fechatema"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["horatema"].ToString().ToUpper() %></td>
 
                         </tr>
                         <%} %>
