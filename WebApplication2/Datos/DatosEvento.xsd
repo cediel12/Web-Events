@@ -25,9 +25,18 @@
         <xs:element name="usuario" msprop:Generator_TableClassName="usuarioDataTable" msprop:Generator_TableVarName="tableusuario" msprop:Generator_TablePropName="usuario" msprop:Generator_RowDeletingName="usuarioRowDeleting" msprop:Generator_RowChangingName="usuarioRowChanging" msprop:Generator_RowEvHandlerName="usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="usuarioRowDeleted" msprop:Generator_UserTableName="usuario" msprop:Generator_RowChangedName="usuarioRowChanged" msprop:Generator_RowEvArgName="usuarioRowChangeEvent" msprop:Generator_RowClassName="usuarioRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
-              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" type="xs:string" minOccurs="0" />
+              <xs:element name="nombrecompeto" msprop:Generator_ColumnVarNameInTable="columnnombrecompeto" msprop:Generator_ColumnPropNameInRow="nombrecompeto" msprop:Generator_ColumnPropNameInTable="nombrecompetoColumn" msprop:Generator_UserColumnName="nombrecompeto" type="xs:string" minOccurs="0" />
               <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="temas" msprop:Generator_TableClassName="temasDataTable" msprop:Generator_TableVarName="tabletemas" msprop:Generator_RowChangedName="temasRowChanged" msprop:Generator_TablePropName="temas" msprop:Generator_RowDeletingName="temasRowDeleting" msprop:Generator_RowChangingName="temasRowChanging" msprop:Generator_RowEvHandlerName="temasRowChangeEventHandler" msprop:Generator_RowDeletedName="temasRowDeleted" msprop:Generator_RowClassName="temasRow" msprop:Generator_UserTableName="temas" msprop:Generator_RowEvArgName="temasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tema" msprop:Generator_ColumnVarNameInTable="columntema" msprop:Generator_ColumnPropNameInRow="tema" msprop:Generator_ColumnPropNameInTable="temaColumn" msprop:Generator_UserColumnName="tema" type="xs:string" minOccurs="0" />
+              <xs:element name="fechatema" msprop:Generator_ColumnVarNameInTable="columnfechatema" msprop:Generator_ColumnPropNameInRow="fechatema" msprop:Generator_ColumnPropNameInTable="fechatemaColumn" msprop:Generator_UserColumnName="fechatema" type="xs:string" minOccurs="0" />
+              <xs:element name="horatema" msprop:Generator_ColumnVarNameInTable="columnhoratema" msprop:Generator_ColumnPropNameInRow="horatema" msprop:Generator_ColumnPropNameInTable="horatemaColumn" msprop:Generator_UserColumnName="horatema" type="xs:string" minOccurs="0" />
+              <xs:element name="nombrecompeto" msprop:Generator_ColumnVarNameInTable="columnnombrecompeto" msprop:Generator_ColumnPropNameInRow="nombrecompeto" msprop:Generator_ColumnPropNameInTable="nombrecompetoColumn" msprop:Generator_UserColumnName="nombrecompeto" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

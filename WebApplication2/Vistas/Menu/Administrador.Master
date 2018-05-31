@@ -58,8 +58,8 @@
                                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                                     <!-- Logout    -->
                                     <li>
-                                        <button runat="server" id="Button1" onserverclick="salir" class="btn btn-mini" title="Search">
-                                            <i class="fa fa-sign-out"></i>Salir
+                                        <button runat="server" id="Button1" onserverclick="salir" class="btn btn-mini" title="Salir">
+                                            Salir  <i class="fa fa-sign-out"></i>
                                         </button>
                                     </li>
                                 </ul>
@@ -73,7 +73,7 @@
                         <!-- Sidebar Header-->
                         <div class="sidebar-header d-flex align-items-center">
                             <div class="avatar">
-                                <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
+                                <img src="../../src/usuario.jpeg" alt="..." class="img-fluid rounded-circle">
                             </div>
                             <div class="title">
                                 <h1 class="h4"><%= Session["Nombre"].ToString() %></></h1>
@@ -122,7 +122,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p>Your company &copy; 2017-2019</p>
+                                        <p>Eventium &copy; 2018</p>
                                     </div>
                                     <div class="col-sm-6 text-right">
                                         <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>

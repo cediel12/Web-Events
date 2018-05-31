@@ -17,7 +17,7 @@ namespace PaginaWeb.Vistas.Inicio
         }
         Usuario u = new Usuario();
         DataTable dt;
-        DataRow dr, ro;
+        DataRow dr;
         string usuar, contra, corre;
         public void RestaurarClave(object sender, EventArgs e)
         {

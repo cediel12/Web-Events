@@ -31,18 +31,16 @@ namespace WebProgramacion.Models
 
             string sql = "SELECT * FROM usuario WHERE usuario = '" + usuario + "' AND contraseña = '" + contrasenia + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
-
         }
         public DataTable ConsultarRol(string fk)
         {
             string sql = "SELECT * FROM usuario_rol WHERE idusuario_rol = '" + fk + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
-
         }
 
         public DataTable ConsultarUsuarios()
         {
-            string sql = "SELECT * FROM usuario;";
+            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,usuario.usuario,usuario.correo, usuario.cedula from usuario;";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -66,7 +64,7 @@ namespace WebProgramacion.Models
         }
         public DataTable consultartemas(int a)
         {
-            string sql = "select tema.idtema, tema.tema,date_format(tema.fecha,' %d-%c-%Y') as fechatema, time_format(tema.tiempo, '%h:%i %p') as horatema,usuario.nombre, usuario.apellido from tema_evento inner join tema on tema_evento.tema_idtema=tema.idtema left join tema_usuario on tema_usuario.tema_idtema=tema.idtema left join usuario on usuario.idusuario=tema_usuario.usuario_idusuario where tema_evento.evento_idevento=" + a;
+            string sql = "select tema.idtema, tema.tema,date_format(tema.fecha,' %d-%c-%Y') as fechatema, time_format(tema.tiempo, '%h:%i %p') as horatema,concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto from tema_evento inner join tema on tema_evento.tema_idtema=tema.idtema left join tema_usuario on tema_usuario.tema_idtema=tema.idtema left join usuario on usuario.idusuario=tema_usuario.usuario_idusuario where tema_evento.evento_idevento=" + a;
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -133,10 +131,36 @@ namespace WebProgramacion.Models
         }
         public DataTable consutaruserevento(int a)
         {
-            string sql = "select evento_usuario.idevento_usuario,usuario.nombre, usuario.apellido, usuario.usuario, usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
+            string sql = "select usuario.idusuario, concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto, usuario.usuario, usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable asistenciaevento(int a)
+        {
+            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a+ " and evento_usuario.asistencia>=evento.duracion;";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable certificado(int iduser,int ideevento)
+        {
+            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento="+ideevento+" and evento_usuario.asistencia>=evento.duracion and idusuario="+iduser+";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public bool realizarasistencia(int a, int b)
+        {
+            string[] sql = new string[1];
+            sql[0] = "call web.asistencia(" +a +","+ b+");" ;
+            return co.RealizarTransaccion(sql);
+
+        }
+        public bool actualizarimagen(string nombreimagen, string ruta, string fecha, int estado, int usu)
+        {
+            string[] sql = new string[1];
+            sql[0] = "call web.Insertar_imagen('" + nombre + "', '" + ruta + "', '" + fecha + "'," + estado + "," + usu + ");";
+            return co.RealizarTransaccion(sql);
+        }
+
     }
 
 }

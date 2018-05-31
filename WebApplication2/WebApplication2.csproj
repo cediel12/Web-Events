@@ -547,6 +547,7 @@
     <Content Include="Estilos\Otro\img\logo1.png" />
     <Content Include="Estilos\Otro\img\logopagina.ico" />
     <Content Include="Estilos\Otro\img\logopagina.png" />
+    <Content Include="Estilos\Otro\img\ruben.jpg" />
     <Content Include="Estilos\Otro\img\team-1.jpg" />
     <Content Include="Estilos\Otro\img\team-2.jpg" />
     <Content Include="Estilos\Otro\img\team-3.jpg" />
@@ -589,11 +590,108 @@
     <Content Include="Estilos\Stuuning\js\jquery.slicebox.js" />
     <Content Include="Estilos\Stuuning\js\modernizr.custom.46884.js" />
     <Content Include="Estilos\styles.css" />
+    <Content Include="Estilos\Tabla\css\animate.css" />
+    <Content Include="Estilos\Tabla\css\bootstrap-select.css" />
+    <Content Include="Estilos\Tabla\css\bootstrap.css" />
+    <Content Include="Estilos\Tabla\css\bootstrap.min.css" />
+    <Content Include="Estilos\Tabla\css\cs-skin-elastic.css" />
+    <Content Include="Estilos\Tabla\css\flag-icon.min.css" />
+    <Content Include="Estilos\Tabla\css\font-awesome.min.css" />
+    <Content Include="Estilos\Tabla\css\lib\chosen\chosen-sprite%402x.png" />
+    <Content Include="Estilos\Tabla\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="Estilos\Tabla\css\lib\chosen\chosen.css" />
+    <Content Include="Estilos\Tabla\css\lib\chosen\chosen.min.css" />
+    <Content Include="Estilos\Tabla\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="Estilos\Tabla\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="Estilos\Tabla\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="Estilos\Tabla\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="Estilos\Tabla\css\normalize.css" />
+    <Content Include="Estilos\Tabla\css\style.css" />
+    <Content Include="Estilos\Tabla\css\themify-icons.css" />
+    <Content Include="Estilos\Tabla\css\variables.css" />
+    <Content Include="Estilos\Tabla\js\chartjs.min.js" />
+    <Content Include="Estilos\Tabla\js\dashboard.js" />
+    <Content Include="Estilos\Tabla\js\index.html" />
+    <Content Include="Estilos\Tabla\js\less.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\chart-js\Chart.bundle.js" />
+    <Content Include="Estilos\Tabla\js\lib\chart-js\chartjs-init.js" />
+    <Content Include="Estilos\Tabla\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="Estilos\Tabla\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\chosen\chosen.proto.js" />
+    <Content Include="Estilos\Tabla\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\datatables-init.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\datatables.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\jszip.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\curvedLines.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\excanvas.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="Estilos\Tabla\js\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="Estilos\Tabla\js\lib\gauge\gauge.js" />
+    <Content Include="Estilos\Tabla\js\lib\gmap\gmap.init.js" />
+    <Content Include="Estilos\Tabla\js\lib\gmap\gmapApi.js" />
+    <Content Include="Estilos\Tabla\js\lib\gmap\gmaps.js" />
+    <Content Include="Estilos\Tabla\js\lib\gmap\gmaps.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\peitychart\peitychart.init.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\jquery.vmap.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="Estilos\Tabla\js\lib\vector-map\vector.init.js" />
+    <Content Include="Estilos\Tabla\js\main.js" />
+    <Content Include="Estilos\Tabla\js\plugins.js" />
+    <Content Include="Estilos\Tabla\js\popper.min.js" />
+    <Content Include="Estilos\Tabla\js\selectFx.js" />
+    <Content Include="Estilos\Tabla\js\vendor\index.html" />
+    <Content Include="Estilos\Tabla\js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="Estilos\Tabla\js\vendor\jquery-2.1.4.min.js" />
+    <Content Include="Estilos\Tabla\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Estilos\Tabla\js\widgets.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Estilos\Otro\less\style.less" />
+    <Content Include="src\1.png" />
+    <Content Include="src\2.jpg" />
+    <Content Include="src\3.jpg" />
+    <Content Include="src\4.jpg" />
+    <Content Include="src\5.jpg" />
+    <Content Include="src\6.jpg" />
+    <Content Include="src\evento.jpeg" />
+    <Content Include="src\usuario.jpeg" />
     <Content Include="Vistas\Inicio\Home.aspx" />
     <Content Include="Vistas\Inicio\Login.aspx" />
     <Content Include="Vistas\Inicio\OlvidoClave.aspx" />
@@ -615,6 +713,9 @@
     <Content Include="Estilos\Men\vendor\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\component.json" />
     <Content Include="Estilos\Men\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="Vistas\Menu\Asistencia.aspx" />
+    <Content Include="Vistas\Menu\Asistent.aspx" />
+    <Content Include="Vistas\Menu\CargarImagen.aspx" />
     <Content Include="Vistas\Menu\CrearTema.aspx" />
     <Content Include="Vistas\Menu\Cronograma.aspx" />
     <Content Include="Vistas\Menu\CrearEvento.aspx" />
@@ -649,6 +750,9 @@
     <Content Include="Datos\DatosEvento.xss">
       <DependentUpon>DatosEvento.xsd</DependentUpon>
     </Content>
+    <Content Include="Estilos\Tabla\css\bootstrap.css.map" />
+    <Content Include="Estilos\Tabla\css\bootstrap.min.css.map" />
+    <Content Include="Estilos\Tabla\css\style.css.map" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -676,6 +780,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\DatosEvento.cs">
+      <DependentUpon>DatosEvento.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\DatosEvento.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -693,10 +800,28 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\AsistenciaEventoReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsistenciaEventoReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Certificado.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Certificado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\EventoReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventoReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\TemasReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemasReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\UsuariosInscritos.cs">
@@ -746,6 +871,27 @@
     </Compile>
     <Compile Include="Vistas\Menu\ActualizarUsuario.aspx.designer.cs">
       <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Asistencia.aspx.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Asistencia.aspx.designer.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Asistent.aspx.cs">
+      <DependentUpon>Asistent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Asistent.aspx.designer.cs">
+      <DependentUpon>Asistent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\CargarImagen.aspx.cs">
+      <DependentUpon>CargarImagen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\CargarImagen.aspx.designer.cs">
+      <DependentUpon>CargarImagen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\CrearTema.aspx.cs">
       <DependentUpon>CrearTema.aspx</DependentUpon>
@@ -892,9 +1038,21 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\AsistenciaEventoReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AsistenciaEventoReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Certificado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Certificado.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\EventoReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EventoReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\TemasReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TemasReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\UsuariosInscritos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

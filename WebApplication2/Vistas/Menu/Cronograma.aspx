@@ -23,7 +23,6 @@
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
-                            <th class="th-lg"><a>ID</a></th>
                             <th class="th-lg"><a>Tema </a></th>
                             <th class="th-lg"><a>Fecha </a></th>
                             <th class="th-lg"><a>Hora  </a></th>
@@ -38,7 +37,6 @@
                                 drtemas = dtemas.Rows[j];
                                 %>
                         <tr>
-                            <td><%=(i+1) %></td>
                             <td><%=drtemas["tema"].ToString().ToUpper() %></td>
                             <td><%=drtemas["fechatema"].ToString().ToUpper() %></td>
                             <td><%=drtemas["horatema"].ToString().ToUpper() %></td>

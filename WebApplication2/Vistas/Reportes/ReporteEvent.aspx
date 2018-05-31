@@ -8,24 +8,31 @@
     <div class="container" id="advanced-search-form">
         <h2>Reportes</h2>
         <div class="form-group">
-            <asp:RadioButton ID="Radio2" GroupName="Reportes" Text="Reportes de Eventos" runat="server" />
+            <asp:RadioButton ID="Radio2" GroupName="Reportes" Text="Reportes de Eventos" runat="server" OnSelectedIndexChanged="Index_Changed2" />
             <br />
-            <asp:RadioButton ID="Radio3" GroupName="Reportes" Text="Reportes de Usuarios Registrados Por Evento" runat="server" />
+            <asp:RadioButton ID="Radio3" GroupName="Reportes" Text="Reportes de Usuarios Registrados Por Evento" runat="server" OnSelectedIndexChanged="Index_Changed" />
 
             <br />
-            <asp:RadioButton ID="Radio4" GroupName="Reportes" Text="Reporte de Tema de Evento" runat="server" />
+            <asp:RadioButton ID="Radio4" GroupName="Reportes" Text="Reporte de Tema de Evento" runat="server" OnSelectedIndexChanged="Index_Changed" />
+            <br />
+            <asp:RadioButton ID="Radio1" GroupName="Reportes" Text="Participantes Certificados" runat="server" OnSelectedIndexChanged="Index_Changed" />
+            <br />
+            <asp:RadioButton ID="Radio5" GroupName="Reportes" Text="Certificados" runat="server" OnSelectedIndexChanged="Index_Changed" />
             <br />
         </div>
         <div class="form-group">
-
-            <asp:Panel ID="Panel1" runat="server" BorderColor="#990000" BorderStyle="Solid" Height="116px" ScrollBars="Both" Style="width: 400px">
-                <asp:ListBox ID="ListBox1" Width="1000px" SelectionMode="Single" runat="server"></asp:ListBox>
-            </asp:Panel>
+            <asp:DropDownList ID="eventos" class="form-control" AppendDataBoundItems="true" DataTextField="media_name" DataValueField="media_id" runat="server" Visible="false">
+                <asp:ListItem>Seleccione Un Evento</asp:ListItem>
+            </asp:DropDownList>
 
         </div>
         <div class="clearfix">
         </div>
-        <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Reporte" OnClick="Reporte" />
+        <asp:Button ID="Button2" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Reporte" OnClick="Reporte" />
+        <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Visualizar" OnClick="ver" />
     </div>
-    <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+    <div class="form-group">
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+    </div>
+
 </asp:Content>

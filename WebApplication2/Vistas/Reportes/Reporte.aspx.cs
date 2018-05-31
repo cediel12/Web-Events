@@ -15,7 +15,6 @@ namespace PaginaWeb.Vistas.Reportes
         DataTable data;
         EventoReporte reporte;
         Usuario u;
-        Conexion co;
         public ReportEvents()
         {
             data = new DataTable();

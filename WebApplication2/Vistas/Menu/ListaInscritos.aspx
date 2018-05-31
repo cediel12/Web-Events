@@ -31,9 +31,8 @@
                     <!--Table head-->
                     <thead>
                         <tr>
-                            <th class="th-lg"><a>ID </a></th>
                             <th class="th-lg"><a>Nombre </a></th>
-                            <th class="th-lg"><a>Apellido </a></th>
+                            <th class="th-lg"><a>Identificacion </a></th>
                             <th class="th-lg"><a>Usuario  </a></th>
 
 
@@ -50,9 +49,8 @@
                         %>
                         <tr>
 
-                            <td><%=(i+1) %></td>
-                            <td><%=drconsulta["nombre"].ToString().ToUpper() %></td>
-                            <td><%=drconsulta["apellido"].ToString().ToUpper() %></td>
+                            <td><%=drconsulta["nombrecompeto"].ToString().ToUpper() %> </td>
+                            <td><%=drconsulta["cedula"].ToString().ToUpper() %></td>
                             <td><%=drconsulta["usuario"].ToString() %></td>
 
                         </tr>

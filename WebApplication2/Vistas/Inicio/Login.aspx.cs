@@ -55,6 +55,10 @@ namespace PaginaWeb.Vistas.Inicio
                         {
                             Session["rol"] = "Usuario";
                         }
+                        else if ((ro["rol_idrol"].ToString() == "4"))
+                        {
+                            Session["rol"] = "Director Evento";
+                        }
                         else
                         {
                             Session["rol"] = "Ponente";

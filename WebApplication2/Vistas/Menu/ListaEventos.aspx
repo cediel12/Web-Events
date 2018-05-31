@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="ListaEventos.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.ListaEventos" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <link rel='stylesheet' id='compiled.css-css' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0" <link rel='stylesheet' id='compiled.css-css'  href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
+    <link rel='stylesheet' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0" />
+    <link rel='stylesheet' id='compiled.css-css' href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
 
-   
+
 
     <div class="card card-cascade narrower">
 
@@ -27,13 +28,11 @@
                     <!--Table head-->
                     <thead>
                         <tr>
-                            <th class="th-lg"><a>ID</a></th>
                             <th class="th-lg"><a>Nombre</a></th>
                             <th class="th-lg"><a>Fecha Inicio</a></th>
                             <th class="th-lg"><a>Fecha Fin</a></th>
                             <th class="th-lg"><a>Hora</a></th>
                             <th class="th-lg"><a>Lugar</a></th>
-                            <th class="th-lg"><a>Usuario</a></th>
                             <th class="th-lg"><a>Registrar</a></th>
                             <th class="th-lg"><a>Temas</a></th>
 
@@ -54,13 +53,11 @@
                         <asp:ListView runat="server" ID="lista">
                             <ItemTemplate>
                                 <tr>
-                                    <td><%=crece++ %></td>
                                     <td><%#Eval("nombre_e") %></td>
                                     <td><%#Eval("fechainicio") %></td>
                                     <td><%#Eval("fechafin") %></td>
                                     <td><%#Eval("horaevento") %></td>
                                     <td><%#Eval("tipo") %></td>
-                                    <td><%#Eval("nombre") %></td>
 
                                     <td>
                                         <asp:LinkButton runat="server" OnCommand="Unnamed_Command" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="registrar">
@@ -78,7 +75,7 @@
                                     <td>
                                         <asp:LinkButton runat="server" OnCommand="creartema" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="creartema">
                                             Crear
-                                        </asp:LinkButton>                                        
+                                        </asp:LinkButton>
                                     </td>
                                     <td>
                                         <asp:LinkButton runat="server" OnCommand="veruser" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="listausereventos">

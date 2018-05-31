@@ -39,8 +39,8 @@
                 <div id="shadow" class="shadow"></div>
 
                 <div id="nav-arrows" class="nav-arrows">
-                    <a href="#">Next</a>
-                    <a href="#">Previous</a>
+                    <a href="#">Siguiente</a>
+                    <a href="#">Anterior</a>
                 </div>
             </div>
 
@@ -99,7 +99,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-1.jpg" alt="">
+                            <img src="../../Estilos/Otro/img/team-1.jpg" alt="">
                         </div>
                         <h4>Victor Cediel</h4>
                         <span>Desarrollador - Director</span>
@@ -115,7 +115,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-2.jpg" alt="">
+                            <img src="../../Estilos/Otro/img/team-3.jpg" alt="">
                         </div>
                         <h4>Nicolas Cardenas</h4>
                         <span>Desarrollador - Director</span>
@@ -131,7 +131,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic">
-                            <img src="img/team-3.jpg" alt="">
+                            <img src="../../Estilos/Otro/img/ruben.jpg" alt="">
                         </div>
                         <h4>Rubem Ordoñez</h4>
                         <span>Desarrollador - Director</span>
