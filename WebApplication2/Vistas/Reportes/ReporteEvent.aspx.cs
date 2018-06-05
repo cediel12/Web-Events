@@ -12,7 +12,7 @@ namespace PaginaWeb.Vistas.Reportes
 {
     public partial class ReporteEvent : System.Web.UI.Page
     {
-        DataTable data;
+        DataTable data, dt, dtr;
         EventoReporte reporte;
         UsuariosInscritos user;
         TemasReporte tema;
@@ -21,7 +21,7 @@ namespace PaginaWeb.Vistas.Reportes
         Usuario u;
         public DataTable dtconsulta = new DataTable();
         public DataTable dtuser = new DataTable();
-        public DataRow drconsulta, druser;
+        public DataRow drconsulta, druser, dr, drr;
         public ReporteEvent()
         {
             data = new DataTable();
@@ -46,7 +46,7 @@ namespace PaginaWeb.Vistas.Reportes
         {
             if (Radio3.Checked || Radio4.Checked || Radio1.Checked || Radio5.Checked)
             {
-                dtconsulta = u.ConsultarEventos();
+                dtconsulta = u.ConsultarEventostodos();
                 if (dtconsulta.Rows.Count > 0)
                 {
                     drconsulta = dtconsulta.Rows[0];
@@ -70,7 +70,6 @@ namespace PaginaWeb.Vistas.Reportes
                 string tex = "";
                 if (eventos.SelectedIndex > 0)
                 {
-                    string path = @"C:\Users\victo\Desktop\amazonia-logo.jpg";
                     tex = eventos.SelectedItem.Text;
                     dtuser = u.consultareventopornombre(tex);
                     if (dtuser.Rows.Count > 0)
@@ -81,7 +80,6 @@ namespace PaginaWeb.Vistas.Reportes
                     data = u.consutaruserevento(a);
                     user.SetDataSource(data);
                     user.SetParameterValue("Mi parámetro", tex);
-                    user.SetParameterValue("picturePath", path);
                     CrystalReportViewer1.ReportSource = user;
                 }
                 else
@@ -139,6 +137,7 @@ namespace PaginaWeb.Vistas.Reportes
             {
                 int a = 0;
                 string tex = "";
+                int duracion = 0;
                 if (eventos.SelectedIndex > 0)
                 {
                     tex = eventos.SelectedItem.Text;
@@ -147,13 +146,30 @@ namespace PaginaWeb.Vistas.Reportes
                     {
                         druser = dtuser.Rows[0];
                         a = Convert.ToInt32(druser["idevento"]);
-                        data = u.certificado(Convert.ToInt32(Session["IDUSER"].ToString()), a);
-                        if (data.Rows.Count > 0)
+                        duracion = Convert.ToInt32(druser["duracion"]);
+                        int id = Convert.ToInt32(Session["IDUSER"].ToString());
+                        dt = u.inscribirevento(id, a);
+                        if (dt.Rows.Count > 0)
                         {
-                            certi.SetDataSource(data);
-                            certi.SetParameterValue("Mi parámetro", tex);
-                            CrystalReportViewer1.ReportSource = certi;
-                        }else
+                            dr = dt.Rows[0];
+                            int idregistro = Convert.ToInt32(dr["idevento_usuario"].ToString());
+                            dtr = u.validarcertificado(idregistro);
+                            if (dtr.Rows.Count > 0)
+                            {
+                                drr = dtr.Rows[0];
+                                if (duracion == Convert.ToInt32(drr["total"].ToString()))
+                                {
+                                    data = u.certificado(Convert.ToInt32(Session["IDUSER"].ToString()), a);
+                                    if (data.Rows.Count > 0)
+                                    {
+                                        certi.SetDataSource(data);
+                                        certi.SetParameterValue("Mi parámetro", tex);
+                                        CrystalReportViewer1.ReportSource = certi;
+                                    }
+                                }
+                            }
+                        }
+                        else
                         {
                             ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('No se encuentra registrado o No cumplio la participacion necesaria');", true);
                         }

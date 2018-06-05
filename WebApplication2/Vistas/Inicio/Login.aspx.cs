@@ -43,6 +43,8 @@ namespace PaginaWeb.Vistas.Inicio
                     Session["Nombre"] = dr["nombre"].ToString() + " " + dr["apellido"].ToString();
                     Session["Estado"] = "OK";
                     Session["IDUSER"] = dr["idusuario"].ToString();
+                    String id= dr["idusuario"].ToString();
+                    Session["correo"] = dr["correo"].ToString();
                     rol = u.ConsultarRol(Session["IDUSER"].ToString());
                     if (rol.Rows.Count > 0)
                     {

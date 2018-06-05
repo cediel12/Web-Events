@@ -11,7 +11,7 @@
         <from>
             <div class="form-group">
                 <label for="first-name">Nombre</label>
-                <asp:TextBox ID="nombre" class="form-control" runat="server"  placeholder="Tema"></asp:TextBox>
+                <asp:TextBox ID="nombre" class="form-control" autocomplete="off"  runat="server"  placeholder="Tema"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="number">Fecha</label>

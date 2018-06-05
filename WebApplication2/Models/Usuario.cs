@@ -46,13 +46,13 @@ namespace WebProgramacion.Models
         }
         public DataTable Consultaruser(string username)
         {
-            string sql = "select * from usuario where usuario.usuario='"+ username + "';";
+            string sql = "select * from usuario where usuario.usuario='" + username + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
         public DataTable consultareventopornombre(string username)
         {
-            string sql = "SELECT evento.idevento, evento.nombre_e from evento where evento.nombre_e='" + username + "';";
+            string sql = "SELECT evento.idevento, evento.nombre_e, evento.duracion from evento where evento.nombre_e='" + username + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -74,22 +74,40 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable ConsultarEventostodos()
+        {
+            string sql = "select evento.idevento,date_format(evento.fechafin,' %d-%c-%Y') as fechafin , evento.nombre_e,date_format(evento.fechainicio, ' %d-%c-%Y') as fechainicio,time_format(evento.hora, '%h:%i %p') as horaevento,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario;";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable ConsultarEventosiniciados()
+        {
+            string sql = "SELECT * FROM web.evento where fechainicio<=CURDATE() and fechafin>=CURDATE();";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable ConsultarEventosInscritos(int a)
+        {
+            string sql = "select evento.idevento,date_format(evento.fechafin,' %d-%c-%Y') as fechafin , evento.nombre_e,date_format(evento.fechainicio, ' %d-%c-%Y') as fechainicio,time_format(evento.hora, '%h:%i %p') as horaevento,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario inner join evento_usuario on evento_usuario.evento_idevento=evento.idevento and evento.fechainicio > curdate() and evento_usuario.usuario_idusuario=" + a + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+
         public bool creartema(string nombre, string fecha, string hora, int idevento, int iduser)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento +"," +iduser +")";
+            sql[0] = "CALL `web`.`crear_temas`('" + nombre + "','" + fecha + "','" + hora + "'," + idevento + "," + iduser + ")";
             return co.RealizarTransaccion(sql);
         }
         public bool registrar(string usuario, string contrasena, string nombre, string apellido, string correo, int cedula)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo +","+ cedula+ "')";
+            sql[0] = "CALL `web`.`pr_crearpersona`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "," + cedula + "')";
             return co.RealizarTransaccion(sql);
         }
         public bool registrarusuarioadmin(string usuario, string contrasena, string nombre, string apellido, string correo, int rol, int cedula)
         {
             string[] sql = new string[1];
-            sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + ","+ cedula + ")";
+            sql[0] = "CALL `web`.`pr_crearpersonaadmin`('" + nombre + "','" + apellido + "','" + usuario + "'," + contrasena + ",'" + correo + "'," + rol + "," + cedula + ")";
             return co.RealizarTransaccion(sql);
         }
         public bool crearevento(string nombre, string fechainicio, string fechafin, string hora, string lugar, int iduser)
@@ -112,15 +130,67 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
         }
 
-        public DataTable inscribirevento(int iduser, int idboton)
+        public DataTable inscribirevento(int iduser, int idevento)
         {
-            string sql = "SELECT * FROM evento_usuario WHERE usuario_idusuario = " + iduser + " and evento_idevento=" + idboton + ";";
+            string sql = "SELECT * FROM evento_usuario WHERE usuario_idusuario = " + iduser + " and evento_idevento=" + idevento + ";";
             return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable consultarasistencia(int idregistro)
+        {
+            string sql = "select * from ingreso_refrigerio where evento_usuarioid=" + idregistro + " and fecha=CURDATE();";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable buscardelet(int iduser, int idevento)
+        {
+            string sql = "select evento_usuario.idevento_usuario from evento_usuario where evento_usuario.evento_idevento=" + idevento + " and evento_usuario.usuario_idusuario=" + iduser + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public bool actualizarinscripcionmañana(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "update web.ingreso_refrigerio set ingreso_refrigerio.asistenciamañana=1 where evento_usuarioid=" + idregistro + ";";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool actualizarusuario(string nombre,string apellido, string correo, int cedula, int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "update web.usuario set nombre='"+nombre+"',apellido='"+apellido+"',correo='"+correo+"',cedula="+cedula+ " where idusuario=" + idregistro + ";";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool actualizarrefrigeriomañana(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "update web.ingreso_refrigerio set ingreso_refrigerio.meriendamañana=1 where evento_usuarioid=" + idregistro + ";";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool actualizarrefrigeriotarde(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "update web.ingreso_refrigerio set ingreso_refrigerio.meriandatarde=1 where evento_usuarioid=" + idregistro + ";";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool actualizarinscripciontarde(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "update web.ingreso_refrigerio set ingreso_refrigerio.asistenciatarde=1 where evento_usuarioid=" + idregistro + ";";
+            return co.RealizarTransaccion(sql);
         }
         public bool registrarevento(int iduser, int idevent)
         {
             string[] sql = new string[1];
             sql[0] = "CALL `web`.`registrar_evento`(" + idevent + "," + iduser + ")";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool registrarmañana(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "CALL `web`.`inscribirmañana`(" + idregistro + ",CURDATE())";
+            return co.RealizarTransaccion(sql);
+        }
+        public bool registrartarde(int idregistro)
+        {
+            string[] sql = new string[1];
+            sql[0] = "CALL `web`.`inscribirtarde`(" + idregistro + ",CURDATE())";
             return co.RealizarTransaccion(sql);
         }
         public DataTable consultartemas(string idevento)
@@ -135,15 +205,39 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
-        public DataTable asistenciaevento(int a)
+        public DataTable consultarusuarioid(int a)
         {
-            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a+ " and evento_usuario.asistencia>=evento.duracion;";
+            string sql = "select concat(usuario.nombre,' ',usuario.apellido)  as nombrecompeto from usuario where usuario.idevento=" + a;
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
-        public DataTable certificado(int iduser,int ideevento)
+        public DataTable asistenciaevento(int a)
         {
-            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento="+ideevento+" and evento_usuario.asistencia>=evento.duracion and idusuario="+iduser+";";
+            string sql = "select distinct concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento inner join ingreso_refrigerio on ingreso_refrigerio.evento_usuarioid=evento_usuario.idevento_usuario and evento.idevento="+a+" and ingreso_refrigerio.asistenciamañana=1 and ingreso_refrigerio.asistenciatarde=1;";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable certificado(int iduser, int ideevento)
+        {
+            string sql = "select concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto,  usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + ideevento + " and idusuario=" + iduser + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable validarcertificado(int a)
+        {
+            string sql = "select count(idingreso_refrigerio) as total from ingreso_refrigerio where ingreso_refrigerio.evento_usuarioid="+a+" and asistenciamañana=1 and asistenciatarde=1;";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable buscarevento(int idevento)
+        {
+            string sql = "select evento.nombre_e from evento where evento.idevento=" + idevento + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable buscaruserid(int iduser)
+        {
+            string sql = "SELECT * FROM usuario where usuario.idusuario=" + iduser + ";";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -154,6 +248,14 @@ namespace WebProgramacion.Models
             return co.RealizarTransaccion(sql);
 
         }
+        public bool eliminarinscripcion(int idevento)
+        {
+            string[] sql = new string[1];
+            sql[0] = "call web.eliminarinscripcion(" + idevento + "); ";
+            return co.RealizarTransaccion(sql);
+
+        }
+        
         public bool actualizarimagen(string nombreimagen, string ruta, string fecha, int estado, int usu)
         {
             string[] sql = new string[1];

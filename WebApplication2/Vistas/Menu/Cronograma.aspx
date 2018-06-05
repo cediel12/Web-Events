@@ -40,7 +40,7 @@
                             <td><%=drtemas["tema"].ToString().ToUpper() %></td>
                             <td><%=drtemas["fechatema"].ToString().ToUpper() %></td>
                             <td><%=drtemas["horatema"].ToString().ToUpper() %></td>
-                            <td><%= drtemas["nombre"].ToString().ToUpper() + " "+ drtemas["apellido"].ToString().ToUpper()  %></td>
+                            <td><%= drtemas["nombrecompeto"].ToString().ToUpper() %></td>
                         </tr>
                             <%} %>
                         <tr>

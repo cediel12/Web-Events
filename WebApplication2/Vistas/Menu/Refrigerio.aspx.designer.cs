@@ -10,7 +10,7 @@
 namespace PaginaWeb.Vistas.Menu {
     
     
-    public partial class Asistencia {
+    public partial class Refrigerio {
         
         /// <summary>
         /// Control eventos.

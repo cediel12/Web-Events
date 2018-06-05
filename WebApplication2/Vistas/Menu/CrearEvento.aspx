@@ -35,7 +35,7 @@
         <from id="form1" runat="server">
             <div class="form-group">
                 <label for="first-name">Nombre</label>
-                <asp:TextBox ID="nombre" class="form-control" runat="server"  placeholder="Nombre Evento"></asp:TextBox>
+                <asp:TextBox ID="nombre" class="form-control" autocomplete="off"  runat="server"  placeholder="Nombre Evento"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="number">Fecha Inicio</label>

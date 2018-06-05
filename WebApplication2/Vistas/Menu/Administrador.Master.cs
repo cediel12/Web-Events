@@ -23,7 +23,7 @@ namespace PaginaWeb.Vistas.Menu
                     MenuControlador me = new MenuControlador();
                     Usuario u = new Usuario();
                     me.CargarMenu(Session["IDUSER"].ToString(), menudinamico);
-
+                    
                 }
 
             }

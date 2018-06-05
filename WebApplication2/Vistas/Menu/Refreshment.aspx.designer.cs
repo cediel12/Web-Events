@@ -10,7 +10,7 @@
 namespace PaginaWeb.Vistas.Menu {
     
     
-    public partial class EventosInscritos {
+    public partial class Refreshment {
         
         /// <summary>
         /// Control lista.

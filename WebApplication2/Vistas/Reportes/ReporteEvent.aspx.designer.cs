@@ -22,15 +22,6 @@ namespace PaginaWeb.Vistas.Reportes {
         protected global::System.Web.UI.WebControls.RadioButton Radio2;
         
         /// <summary>
-        /// Control Radio3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Radio3;
-        
-        /// <summary>
         /// Control Radio4.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace PaginaWeb.Vistas.Reportes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton Radio4;
+        
+        /// <summary>
+        /// Control Radio3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Radio3;
         
         /// <summary>
         /// Control Radio1.

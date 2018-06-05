@@ -727,6 +727,8 @@
     <Content Include="Vistas\Menu\ConsultarUsuario.aspx" />
     <Content Include="Vistas\Menu\ListaInscritos.aspx" />
     <Content Include="Vistas\Menu\ModificarEvento.aspx" />
+    <Content Include="Vistas\Menu\Refreshment.aspx" />
+    <Content Include="Vistas\Menu\Refrigerio.aspx" />
     <Content Include="Vistas\Menu\RegistrarUsuario.aspx" />
     <Content Include="Estilos\Otro\img\pestaña" />
     <Content Include="Vistas\Inicio\Inicio.Master" />
@@ -969,6 +971,20 @@
     </Compile>
     <Compile Include="Vistas\Menu\ModificarEvento.aspx.designer.cs">
       <DependentUpon>ModificarEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Refreshment.aspx.cs">
+      <DependentUpon>Refreshment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Refreshment.aspx.designer.cs">
+      <DependentUpon>Refreshment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Refrigerio.aspx.cs">
+      <DependentUpon>Refrigerio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Refrigerio.aspx.designer.cs">
+      <DependentUpon>Refrigerio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>

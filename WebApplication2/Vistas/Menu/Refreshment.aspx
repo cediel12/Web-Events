@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" EnableEventValidation="false" Language="C#" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="Asistent.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.Asistent" %>
-
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="Refreshment.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.Refreshment" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../Estilos/Tabla/css/lib/datatable/dataTables.bootstrap.min.css" rel="stylesheet" />
 
@@ -10,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="Asistencia.aspx" class="white-text mx-3">Volver</a>
+                            <a href="Refrigerio.aspx" class="white-text mx-3">Volver</a>
                             <strong class="card-title">Asistencia - <%= Session["nombreevento"].ToString() %></strong>
                         </div>
                         <div class="card-body">
@@ -29,7 +28,7 @@
                                                 <td><%#Eval("nombrecompeto") %></td>
                                                 <td><%#Eval("cedula") %></td>
                                                 <td>
-                                                    <asp:LinkButton runat="server" OnCommand="Unnamed_Command" CssClass="" CommandArgument='<%#Eval("idusuario") %>' CommandName="asistencia">
+                                                    <asp:LinkButton runat="server" OnCommand="Unnamed_Command" CssClass="" CommandArgument='<%#Eval("idusuario") %>' CommandName="refrigerio">
                                             Asistencia
                                                     </asp:LinkButton>
                                                 </td>

@@ -9,9 +9,9 @@ using WebProgramacion.Models;
 
 namespace PaginaWeb.Vistas.Menu
 {
-    public partial class Asistencia : System.Web.UI.Page
+    public partial class Refrigerio : System.Web.UI.Page
     {
-        Usuario u= new Usuario();
+        Usuario u = new Usuario();
         public DataTable dtconsulta = new DataTable();
         public DataRow drconsulta, druser;
         public DataTable dtuser = new DataTable();
@@ -27,17 +27,18 @@ namespace PaginaWeb.Vistas.Menu
                 {
                     druser = dtuser.Rows[0];
                     Session["ideventoseccionado"] = Convert.ToInt32(druser["idevento"]);
-                    Session["nombreevento"]= tex;
-                    if (jornada.SelectedItem.Text== "Mañana")
+                    Session["nombreevento"] = tex;
+                    if (jornada.SelectedItem.Text == "Mañana")
                     {
-                        Session["jornada"] = 1;
-                    }else if (jornada.SelectedItem.Text == "Tarde")
+                        Session["jornadarefrigerio"] = 1;
+                    }
+                    else if (jornada.SelectedItem.Text == "Tarde")
                     {
-                        Session["jornada"] = 2;
+                        Session["jornadarefrigerio"] = 2;
                     }
                 }
             }
-            Response.Redirect("../Menu/Asistent.aspx");
+            Response.Redirect("../Menu/Refreshment.aspx");
         }
 
         protected void Page_Load(object sender, EventArgs e)

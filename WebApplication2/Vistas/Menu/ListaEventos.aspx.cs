@@ -16,6 +16,9 @@ namespace PaginaWeb.Vistas.Menu
         public int crece = 1;
         DataTable dt;
         public int a;
+        private DataTable dtuser;
+        private DataRow druser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Estado"].ToString() != "OK")
@@ -44,7 +47,7 @@ namespace PaginaWeb.Vistas.Menu
                     if (u.registrarevento(iduser, id) == true)
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Su registro fue exitoso');", true);
-
+                        confirmarinscripcion(Session["correo"].ToString(),buscar(id));
                     }
                 }
             }
@@ -80,6 +83,74 @@ namespace PaginaWeb.Vistas.Menu
 
                 Response.Redirect("ListaInscritos.aspx");
             }
+        }
+        public void confirmarinscripcion(string correo, string evento)
+        {
+            /*-------------------------MENSAJE DE CORREO----------------------*/
+
+            //Creamos un nuevo Objeto de mensaje
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+
+            //Direccion de correo electronico a la que queremos enviar el mensaje
+            mmsg.To.Add(correo);
+
+            //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
+
+            //Asunto
+            mmsg.Subject = "Su Inscripcion fue Exitosa";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            //Direccion de correo electronico que queremos que reciba una copia del mensaje
+            //mmsg.Bcc.Add("destinatariocopia@servidordominio.com"); //Opcional
+
+            //Cuerpo del Mensaje
+            mmsg.Body = "Su registro al Evento " + evento + " fue exitoso, se solicita asistir todos los dias para poder obtener su certificacion";
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
+
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("victorcediel87@gmail.com");
+
+
+            /*-------------------------CLIENTE DE CORREO----------------------*/
+
+            //Creamos un objeto de cliente de correo
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+
+            //Hay que crear las credenciales del correo emisor
+            cliente.Credentials =
+                new System.Net.NetworkCredential("victorcediel87@gmail.com", "3125196614");
+
+            //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
+
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+
+
+            cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
+
+
+            /*-------------------------ENVIO DE CORREO----------------------*/
+
+            try
+            {
+
+                cliente.Send(mmsg);
+            }
+            catch (System.Net.Mail.SmtpException)
+            {
+            }
+        }
+        public string buscar(int a)
+        {
+            string tex="";
+            dtuser = u.buscarevento(a);
+            if (dtuser.Rows.Count > 0)
+            {
+                druser = dtuser.Rows[0];
+                tex = druser["nombre_e"].ToString();
+            }
+            return tex;
         }
     }
 }
