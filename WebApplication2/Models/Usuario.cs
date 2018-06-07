@@ -282,7 +282,17 @@ namespace WebProgramacion.Models
         }
         public DataTable Consultarevento(int dia, int mes, int ano)
         {
-            string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " ORDER BY DAY(e.fechainicio) asc, e.hora asc ; ";
+            string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " and fechainicio<=curdate() and fechafin>=curdate() ORDER BY DAY(e.fechainicio) asc, e.hora asc ;";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable Consultareventoterminados(int dia, int mes, int ano)
+        {
+            string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " and fechainicio<=curdate() and fechafin<curdate() ORDER BY DAY(e.fechainicio) asc, e.hora asc; ";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable Consultareventosininiciar(int dia, int mes, int ano)
+        {
+            string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " and fechainicio>=curdate() and fechafin>=curdate() ORDER BY DAY(e.fechainicio) asc, e.hora asc ; ";
             return co.EjecutarConsulta(sql, CommandType.Text);
         }
         public DataTable consultarimageeven(int id)

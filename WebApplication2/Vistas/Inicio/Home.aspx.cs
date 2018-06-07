@@ -75,6 +75,24 @@ namespace PaginaWeb.Vistas.Inicio
                     for (int j = 0; j < evecal.Rows.Count; j++)
                     {
                         rima = evecal.Rows[j];
+                        texto_calendar += "<a class=\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white\" title=\"" + rima["nombre_e"] + "\">" + rima["nombre_e"] + "</a>";
+                    }
+                }
+                evecal = u.Consultareventoterminados((i + 1), m, hoy.Year);
+                if (evecal.Rows.Count > 0)
+                {
+                    for (int j = 0; j < evecal.Rows.Count; j++)
+                    {
+                        rima = evecal.Rows[j];
+                        texto_calendar += "<a class=\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-danger text-white\" title=\"" + rima["nombre_e"] + "\">" + rima["nombre_e"] + "</a>";
+                    }
+                }
+                evecal = u.Consultareventosininiciar((i + 1), m, hoy.Year);
+                if (evecal.Rows.Count > 0)
+                {
+                    for (int j = 0; j < evecal.Rows.Count; j++)
+                    {
+                        rima = evecal.Rows[j];
                         texto_calendar += "<a class=\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-info text-white\" title=\"" + rima["nombre_e"] + "\">" + rima["nombre_e"] + "</a>";
                     }
                 }

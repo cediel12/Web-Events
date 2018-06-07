@@ -117,16 +117,9 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <%--arreglar el cs ya que no deja ver los primeros numeros--%>
-                    <div class="carousel-item">
-                        <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=anterior%></div>
-                    </div>
                     <div class="carousel-item active">
                         <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=actual%></div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=siguiente1%></div>
-                    </div>
-
                 </div>
             </div>
         </div>
