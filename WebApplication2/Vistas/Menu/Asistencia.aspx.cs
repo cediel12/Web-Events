@@ -22,12 +22,14 @@ namespace PaginaWeb.Vistas.Menu
             if (eventos.SelectedIndex > 0)
             {
                 tex = eventos.SelectedItem.Text;
+                Session["jordanaasistencia"]= jornada.SelectedItem.Text;
                 dtuser = u.consultareventopornombre(tex);
                 if (dtuser.Rows.Count > 0)
                 {
                     druser = dtuser.Rows[0];
                     Session["ideventoseccionado"] = Convert.ToInt32(druser["idevento"]);
                     Session["nombreevento"]= tex;
+                    Session["fechaactual"] = druser["fechaactual"];
                     if (jornada.SelectedItem.Text== "Mañana")
                     {
                         Session["jornada"] = 1;

@@ -23,8 +23,6 @@
                                         <th class="th-lg"><a>Lugar</a></th>
                                         <th class="th-lg"><a>Registrar</a></th>
                                         <th class="th-lg"><a>Temas</a></th>
-
-
                                         <%
                                             if (Session["rol"].ToString() == "Administrador")
                                             {%>

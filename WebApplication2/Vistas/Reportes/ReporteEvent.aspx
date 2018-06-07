@@ -18,8 +18,7 @@
             <asp:RadioButton ID="Radio1" GroupName="Reportes" Text="Participantes Certificados" runat="server" OnSelectedIndexChanged="Index_Changed" />
             <%} %>
             <br />
-            <asp:RadioButton ID="Radio5" GroupName="Reportes" Text="Certificados" runat="server" OnSelectedIndexChanged="Index_Changed" />
-            <br />
+            
         </div>
         <div class="form-group">
             <asp:DropDownList ID="eventos" class="form-control" AppendDataBoundItems="true" DataTextField="media_name" DataValueField="media_id" runat="server" Visible="false">

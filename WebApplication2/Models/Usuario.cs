@@ -52,7 +52,7 @@ namespace WebProgramacion.Models
         }
         public DataTable consultareventopornombre(string username)
         {
-            string sql = "SELECT evento.idevento, evento.nombre_e, evento.duracion from evento where evento.nombre_e='" + username + "';";
+            string sql = "SELECT evento.idevento,date_format(curdate(), ' %d/%c/%Y') as fechaactual, evento.nombre_e, evento.duracion from evento where evento.nombre_e='" + username + "';";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -201,7 +201,13 @@ namespace WebProgramacion.Models
         }
         public DataTable consutaruserevento(int a)
         {
-            string sql = "select usuario.idusuario, concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto, usuario.usuario, usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
+            string sql = "select usuario.idusuario, concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto, usuario.usuario,usuario.correo, usuario.cedula from usuario inner join evento_usuario on evento_usuario.usuario_idusuario=usuario.idusuario inner join evento on evento_usuario.evento_idevento=evento.idevento and evento.idevento=" + a;
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable consultardirectores()
+        {
+            string sql = "select usuario.idusuario, concat(usuario.nombre,' ',usuario.apellido) as nombrecompeto from usuario inner join usuario_rol on usuario_rol.usuario_idusuario=usuario.idusuario where usuario_rol.rol_idrol=4;";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
@@ -255,14 +261,28 @@ namespace WebProgramacion.Models
             return co.RealizarTransaccion(sql);
 
         }
-        
+
         public bool actualizarimagen(string nombreimagen, string ruta, string fecha, int estado, int usu)
         {
             string[] sql = new string[1];
             sql[0] = "call web.Insertar_imagen('" + nombre + "', '" + ruta + "', '" + fecha + "'," + estado + "," + usu + ");";
             return co.RealizarTransaccion(sql);
         }
-
+        public DataTable Consultarevento(int dia, int mes, int ano)
+        {
+            string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " ORDER BY DAY(e.fechainicio) asc, e.hora asc ; ";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable consultarimageeven(int id)
+        {
+            string sql = "SELECT i.ruta,i.estado,e.idevento, e.icono FROM evento e left join imagen i on e.icono = i.Id where i.estado = 1 and e.idevento =" + id + "; ";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
+        public DataTable consultarimageusu(int id)
+        {
+            string sql = "SELECT i.ruta,i.estado,u.idusuario, u.imagen FROM usuario u left join imagen i on u.imagen = i.Id where i.estado = 1 and u.idusuario =" + id + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+        }
     }
 
 }

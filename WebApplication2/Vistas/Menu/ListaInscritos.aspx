@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="ListaInscritos.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.ListaInscritos" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <link rel='stylesheet' id='compiled.css-css' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0" <link rel='stylesheet' id='compiled.css-css'  href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel='stylesheet' href="../../Estilos/Otro/css/compiled.min268f.css?ver=4.5.0" />
+    <link rel='stylesheet' id='compiled.css-css' href='../../wp-content/themes/mdbootstrap4/css/compiled.min268f.css?ver=4.5.0' type='text/css' media='all' />
+    <link href="../../Estilos/styles.css" rel="stylesheet" />
     <!--Top Table UI-->
     <!--Top Table UI-->
 
@@ -12,11 +14,30 @@
 
             <div>
                 <a href="ListaEventos.aspx" class="white-text mx-3">Volver</a>
+                <button style="background-color:transparent" type="button" id="Button2" class="btn btn-danger btn-lg btn-responsive" data-toggle="modal" data-target="#miventana" >Mensaje</button>
+                <div class="modal fade" id="miventana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color:black">Mensaje Masivo</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="Mensaje.aspx"></iframe>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <a class="white-text mx-3">Temas</a>
+            <a class="white-text mx-3">Inscritos</a>
             <div>
-                
             </div>
 
         </div>
@@ -64,7 +85,7 @@
             <hr class="my-0">
 
             <!--Bottom Table UI-->
-            
+
 
         </div>
     </div>

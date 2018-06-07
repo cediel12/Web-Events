@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Vistas/Menu/Administrador.Master" AutoEventWireup="true" CodeBehind="Refreshment.aspx.cs" Inherits="PaginaWeb.Vistas.Menu.Refreshment" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../Estilos/Tabla/css/lib/datatable/dataTables.bootstrap.min.css" rel="stylesheet" />
-
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="Refrigerio.aspx" class="white-text mx-3">Volver</a>
-                            <strong class="card-title">Asistencia - <%= Session["nombreevento"].ToString() %></strong>
+                            <strong class="card-title">Asistencia - <%= Session["nombreevento"].ToString() %> - Jornada <%= Session["jornadarefri"].ToString() %> - <%=Session["fechaactual"].ToString() %></strong>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -29,7 +29,7 @@
                                                 <td><%#Eval("cedula") %></td>
                                                 <td>
                                                     <asp:LinkButton runat="server" OnCommand="Unnamed_Command" CssClass="" CommandArgument='<%#Eval("idusuario") %>' CommandName="refrigerio">
-                                            Asistencia
+                                            Refrigerio
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>

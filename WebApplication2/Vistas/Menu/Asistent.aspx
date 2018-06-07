@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="Asistencia.aspx" class="white-text mx-3">Volver</a>
-                            <strong class="card-title">Asistencia - <%= Session["nombreevento"].ToString() %></strong>
+                            <strong class="card-title">Asistencia - <%= Session["nombreevento"].ToString() %> - Jornada <%=Session["jordanaasistencia"].ToString() %> - <%=Session["fechaactual"].ToString() %></strong>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">

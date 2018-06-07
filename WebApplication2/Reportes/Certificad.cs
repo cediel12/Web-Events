@@ -16,14 +16,14 @@ namespace PaginaWeb.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Certificado : ReportClass {
+    public class Certificad : ReportClass {
         
-        public Certificado() {
+        public Certificad() {
         }
         
         public override string ResourceName {
             get {
-                return "Certificado.rpt";
+                return "Certificad.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace PaginaWeb.Reportes {
         
         public override string FullResourceName {
             get {
-                return "PaginaWeb.Reportes.Certificado.rpt";
+                return "PaginaWeb.Reportes.Certificad.rpt";
             }
             set {
                 // Do nothing
@@ -95,20 +95,12 @@ namespace PaginaWeb.Reportes {
                 return this.DataDefinition.ParameterFields[0];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_picturePath_ {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCertificado : Component, ICachedReport {
+    public class CachedCertificad : Component, ICachedReport {
         
-        public CachedCertificado() {
+        public CachedCertificad() {
         }
         
         [Browsable(false)]
@@ -145,7 +137,7 @@ namespace PaginaWeb.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Certificado rpt = new Certificado();
+            Certificad rpt = new Certificad();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -17,7 +17,7 @@ namespace PaginaWeb.Vistas.Reportes
         UsuariosInscritos user;
         TemasReporte tema;
         AsistenciaEventoReporte asistente;
-        Certificado certi;
+        Certificad certi;
         Usuario u;
         public DataTable dtconsulta = new DataTable();
         public DataTable dtuser = new DataTable();
@@ -29,7 +29,7 @@ namespace PaginaWeb.Vistas.Reportes
             user = new UsuariosInscritos();
             tema = new TemasReporte();
             asistente = new AsistenciaEventoReporte();
-            certi = new Certificado();
+            certi = new Certificad();
             u = new Usuario();
 
         }
@@ -44,7 +44,7 @@ namespace PaginaWeb.Vistas.Reportes
 
         protected void ver(Object sender, EventArgs e)
         {
-            if (Radio3.Checked || Radio4.Checked || Radio1.Checked || Radio5.Checked)
+            if (Radio3.Checked || Radio4.Checked || Radio1.Checked)
             {
                 dtconsulta = u.ConsultarEventostodos();
                 if (dtconsulta.Rows.Count > 0)
@@ -133,53 +133,7 @@ namespace PaginaWeb.Vistas.Reportes
                     ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Seleccione un Evento');", true);
                 }
             }
-            else if (Radio5.Checked && (eventos.SelectedIndex > 0))
-            {
-                int a = 0;
-                string tex = "";
-                int duracion = 0;
-                if (eventos.SelectedIndex > 0)
-                {
-                    tex = eventos.SelectedItem.Text;
-                    dtuser = u.consultareventopornombre(tex);
-                    if (dtuser.Rows.Count > 0)
-                    {
-                        druser = dtuser.Rows[0];
-                        a = Convert.ToInt32(druser["idevento"]);
-                        duracion = Convert.ToInt32(druser["duracion"]);
-                        int id = Convert.ToInt32(Session["IDUSER"].ToString());
-                        dt = u.inscribirevento(id, a);
-                        if (dt.Rows.Count > 0)
-                        {
-                            dr = dt.Rows[0];
-                            int idregistro = Convert.ToInt32(dr["idevento_usuario"].ToString());
-                            dtr = u.validarcertificado(idregistro);
-                            if (dtr.Rows.Count > 0)
-                            {
-                                drr = dtr.Rows[0];
-                                if (duracion == Convert.ToInt32(drr["total"].ToString()))
-                                {
-                                    data = u.certificado(Convert.ToInt32(Session["IDUSER"].ToString()), a);
-                                    if (data.Rows.Count > 0)
-                                    {
-                                        certi.SetDataSource(data);
-                                        certi.SetParameterValue("Mi parámetro", tex);
-                                        CrystalReportViewer1.ReportSource = certi;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('No se encuentra registrado o No cumplio la participacion necesaria');", true);
-                        }
-                    }
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Seleccione un Evento');", true);
-                }
-            }
+            
             else
             if (Radio2.Checked)
             {

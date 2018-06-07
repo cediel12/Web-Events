@@ -25,10 +25,15 @@
                         for (int i = 0; i < dtconsulta.Rows.Count; i++)
                         {
                             drconsulta = dtconsulta.Rows[i];
+                            int id = Convert.ToInt32(drconsulta["idevento"]);
+                            ima = u.consultarimageeven(id);
+                            rima = ima.Rows[0];
+                            string direccion = "../../src/" + rima["ruta"];
+                            Console.Write(direccion);
                     %>
                     <li>
                         <a>
-                            <img src="../../Estilos/Stuuning/images/<%=(i+1) %>.jpg" alt="image2" /></a>
+                            <img src="<%=direccion%>" alt="image2" height="420" width="700" /></a>
                         <div class="sb-description">
                             <h3><%=drconsulta["nombre_e"].ToString().ToUpper() %></h3>
                         </div>
@@ -39,8 +44,8 @@
                 <div id="shadow" class="shadow"></div>
 
                 <div id="nav-arrows" class="nav-arrows">
-                    <a href="#">Siguiente</a>
-                    <a href="#">Anterior</a>
+                    <a href="#">Next</a>
+                    <a href="#">Previous</a>
                 </div>
             </div>
 
@@ -86,6 +91,45 @@
                 Page.init();
             });
 		</script>
+    </section>
+    <%--calendario  --%>
+
+    <section id="team">
+        <div class="container-fluid">
+            <header>
+                <h4 id="titulo_mes" class="display-4 mb-4 text-center"><%=encabezado%></h4>
+                <script>
+                    var value = new String(<%=encabezado%>);
+                    $(document).ready(function () {
+                        $('#myCarousel').on('slide.bs.carousel', function () {
+                            $('#titulo_mes').html("2012 2013 2014 2015")
+                        })
+                    });
+                </script>
+                <div class="row d-none d-sm-flex p-1 bg-dark text-white">
+                    <% for (int i = 0; i < 7; i++)
+                        {%>
+                    <h5 class="col-sm p-1 text-center"><%=dias[i]%></h5>
+                    <%}
+                    %>
+                </div>
+            </header>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <%--arreglar el cs ya que no deja ver los primeros numeros--%>
+                    <div class="carousel-item">
+                        <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=anterior%></div>
+                    </div>
+                    <div class="carousel-item active">
+                        <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=actual%></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row border border-right-0 border-bottom-0" data-target="#myCarousel"><%=siguiente1%></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
     <%--desarrolladores--%>
 
@@ -159,7 +203,7 @@
             </div>
         </div>
 
-        <div id="google-map" data-latitude="1.620141" data-longitude="-75.604618"></div>
+        <%--<div id="google-map" data-latitude="1.620141" data-longitude="-75.604618"></div>--%>
 
         <div class="container wow fadeInUp">
             <div class="row justify-content-center">

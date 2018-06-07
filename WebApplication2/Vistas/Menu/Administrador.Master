@@ -73,7 +73,7 @@
                         <!-- Sidebar Header-->
                         <div class="sidebar-header d-flex align-items-center">
                             <div class="avatar">
-                                <img src="../../src/usuario.jpeg" alt="..." class="img-fluid rounded-circle">
+                                <img src='<%= Session["ima"].ToString()%>' alt="..." class="img-fluid rounded-circle">
                             </div>
                             <div class="title">
                                 <h1 class="h4"><%= Session["Nombre"].ToString() %></></h1>
@@ -82,9 +82,9 @@
                         </div>
                         <!-- Sidebar Navidation Menus-->
                         <span class="heading">Menu</span>
-                        <div class="side-navbar"  >
+                        <div class="side-navbar">
                             <ul class="list-unstyled" id="menudinamico" runat="server">
-                                <li ><a href="../Menu/Home.aspx"><i class="menu-icon fa fa-home"></i>Home </a></li>
+                                <li><a href="../Menu/Home.aspx"><i class="menu-icon fa fa-home"></i>Home </a></li>
                             </ul>
                         </div>
                         <%--<ul class="list-unstyled">
@@ -123,10 +123,6 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p>Eventium &copy; 2018</p>
-                                    </div>
-                                    <div class="col-sm-6 text-right">
-                                        <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>
-                                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                                     </div>
                                 </div>
                             </div>

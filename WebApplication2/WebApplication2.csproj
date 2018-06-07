@@ -715,7 +715,9 @@
     <Content Include="Estilos\Men\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Vistas\Menu\Asistencia.aspx" />
     <Content Include="Vistas\Menu\Asistent.aspx" />
+    <Content Include="Vistas\Menu\cargaarchivos.aspx" />
     <Content Include="Vistas\Menu\CargarImagen.aspx" />
+    <Content Include="Vistas\Menu\Certificado.aspx" />
     <Content Include="Vistas\Menu\CrearTema.aspx" />
     <Content Include="Vistas\Menu\Cronograma.aspx" />
     <Content Include="Vistas\Menu\CrearEvento.aspx" />
@@ -726,6 +728,7 @@
     <Content Include="Vistas\Menu\ListaEventos.aspx" />
     <Content Include="Vistas\Menu\ConsultarUsuario.aspx" />
     <Content Include="Vistas\Menu\ListaInscritos.aspx" />
+    <Content Include="Vistas\Menu\Mensaje.aspx" />
     <Content Include="Vistas\Menu\ModificarEvento.aspx" />
     <Content Include="Vistas\Menu\Refreshment.aspx" />
     <Content Include="Vistas\Menu\Refrigerio.aspx" />
@@ -808,10 +811,10 @@
       <DependentUpon>AsistenciaEventoReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\Certificado.cs">
+    <Compile Include="Reportes\Certificad.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Certificado.rpt</DependentUpon>
+      <DependentUpon>Certificad.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\EventoReporte.cs">
@@ -888,12 +891,26 @@
     <Compile Include="Vistas\Menu\Asistent.aspx.designer.cs">
       <DependentUpon>Asistent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Menu\cargaarchivos.aspx.cs">
+      <DependentUpon>cargaarchivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\cargaarchivos.aspx.designer.cs">
+      <DependentUpon>cargaarchivos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Menu\CargarImagen.aspx.cs">
       <DependentUpon>CargarImagen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\Menu\CargarImagen.aspx.designer.cs">
       <DependentUpon>CargarImagen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Certificado.aspx.cs">
+      <DependentUpon>Certificado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Certificado.aspx.designer.cs">
+      <DependentUpon>Certificado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\CrearTema.aspx.cs">
       <DependentUpon>CrearTema.aspx</DependentUpon>
@@ -964,6 +981,13 @@
     </Compile>
     <Compile Include="Vistas\Menu\ListaInscritos.aspx.designer.cs">
       <DependentUpon>ListaInscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Mensaje.aspx.cs">
+      <DependentUpon>Mensaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Mensaje.aspx.designer.cs">
+      <DependentUpon>Mensaje.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\ModificarEvento.aspx.cs">
       <DependentUpon>ModificarEvento.aspx</DependentUpon>
@@ -1058,9 +1082,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AsistenciaEventoReporte.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Certificado.rpt">
+    <EmbeddedResource Include="Reportes\Certificad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Certificado.cs</LastGenOutput>
+      <LastGenOutput>Certificad.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\EventoReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

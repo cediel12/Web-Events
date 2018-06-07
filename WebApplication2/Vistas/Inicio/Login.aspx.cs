@@ -12,8 +12,8 @@ namespace PaginaWeb.Vistas.Inicio
     public partial class Login : System.Web.UI.Page
     {
         Usuario u = new Usuario();
-        DataTable dt, rol;
-        DataRow dr, ro;
+        DataTable dt, rol, ima;
+        DataRow dr, ro, io;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,9 +43,12 @@ namespace PaginaWeb.Vistas.Inicio
                     Session["Nombre"] = dr["nombre"].ToString() + " " + dr["apellido"].ToString();
                     Session["Estado"] = "OK";
                     Session["IDUSER"] = dr["idusuario"].ToString();
-                    String id= dr["idusuario"].ToString();
-                    Session["correo"] = dr["correo"].ToString();
-                    rol = u.ConsultarRol(Session["IDUSER"].ToString());
+                    Session["correo"]= dr["correo"].ToString();
+                    string session = Session["IDUSER"].ToString();//cambios
+                    rol = u.ConsultarRol(session);
+                    ima = u.consultarimageusu(Convert.ToInt32(session));
+                    io = ima.Rows[0];
+                    Session["ima"] = "../../src/" + io["ruta"].ToString();
                     if (rol.Rows.Count > 0)
                     {
                         ro = rol.Rows[0];
@@ -56,10 +59,6 @@ namespace PaginaWeb.Vistas.Inicio
                         else if (ro["rol_idrol"].ToString() == "2")
                         {
                             Session["rol"] = "Usuario";
-                        }
-                        else if ((ro["rol_idrol"].ToString() == "4"))
-                        {
-                            Session["rol"] = "Director Evento";
                         }
                         else
                         {

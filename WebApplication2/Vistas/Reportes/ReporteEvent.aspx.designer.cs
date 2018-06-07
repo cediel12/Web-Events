@@ -49,15 +49,6 @@ namespace PaginaWeb.Vistas.Reportes {
         protected global::System.Web.UI.WebControls.RadioButton Radio1;
         
         /// <summary>
-        /// Control Radio5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Radio5;
-        
-        /// <summary>
         /// Control eventos.
         /// </summary>
         /// <remarks>
