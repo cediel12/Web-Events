@@ -11,7 +11,7 @@ namespace PaginaWeb.Vistas.Menu
 {
     public partial class Asistencia : System.Web.UI.Page
     {
-        Usuario u= new Usuario();
+        Usuario u = new Usuario();
         public DataTable dtconsulta = new DataTable();
         public DataRow drconsulta, druser;
         public DataTable dtuser = new DataTable();
@@ -22,18 +22,19 @@ namespace PaginaWeb.Vistas.Menu
             if (eventos.SelectedIndex > 0)
             {
                 tex = eventos.SelectedItem.Text;
-                Session["jordanaasistencia"]= jornada.SelectedItem.Text;
+                Session["jordanaasistencia"] = jornada.SelectedItem.Text;
                 dtuser = u.consultareventopornombre(tex);
                 if (dtuser.Rows.Count > 0)
                 {
                     druser = dtuser.Rows[0];
                     Session["ideventoseccionado"] = Convert.ToInt32(druser["idevento"]);
-                    Session["nombreevento"]= tex;
+                    Session["nombreevento"] = tex;
                     Session["fechaactual"] = druser["fechaactual"];
-                    if (jornada.SelectedItem.Text== "Mañana")
+                    if (jornada.SelectedItem.Text == "Mañana")
                     {
                         Session["jornada"] = 1;
-                    }else if (jornada.SelectedItem.Text == "Tarde")
+                    }
+                    else if (jornada.SelectedItem.Text == "Tarde")
                     {
                         Session["jornada"] = 2;
                     }
@@ -48,14 +49,25 @@ namespace PaginaWeb.Vistas.Menu
             {
                 Response.Redirect("../Inicio/Login.aspx");
             }
-            dtconsulta = u.ConsultarEventosiniciados();
-            if (dtconsulta.Rows.Count > 0)
+            if (!IsPostBack)
             {
-                drconsulta = dtconsulta.Rows[0];
-                for (int i = 0; i < dtconsulta.Rows.Count; i++)
+                if (Session["rol"].ToString() == "Administrador")
                 {
-                    drconsulta = dtconsulta.Rows[i];
-                    eventos.Items.Add(drconsulta["nombre_e"].ToString().ToUpper());
+                    dtconsulta = u.ConsultarEventosiniciados();
+
+                }
+                else if (Session["rol"].ToString() == "Director Evento")
+                {
+                    dtconsulta = u.ConsultarEventosiniciadosdirector(Convert.ToInt32(Session["IDUSER"].ToString()));
+                }
+                if (dtconsulta.Rows.Count > 0)
+                {
+                    drconsulta = dtconsulta.Rows[0];
+                    for (int i = 0; i < dtconsulta.Rows.Count; i++)
+                    {
+                        drconsulta = dtconsulta.Rows[i];
+                        eventos.Items.Add(drconsulta["nombre_e"].ToString().ToUpper());
+                    }
                 }
             }
         }

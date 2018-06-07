@@ -24,7 +24,7 @@
                                         <th class="th-lg"><a>Registrar</a></th>
                                         <th class="th-lg"><a>Temas</a></th>
                                         <%
-                                            if (Session["rol"].ToString() == "Administrador")
+                                            if (Session["rol"].ToString() == "Administrador" || Session["rol"].ToString() == "Director Evento")
                                             {%>
                                         <th class="th-lg"><a>Crear Tema </a></th>
                                         <th class="th-lg"><a>Lista de Inscritos </a></th>
@@ -56,7 +56,7 @@
                                                     </asp:LinkButton>
                                                 </td>
                                                 <%
-                                                    if (Session["rol"].ToString() == "Administrador")
+                                                    if (Session["rol"].ToString() == "Administrador" || Session["rol"].ToString() == "Director Evento")
                                                     {%>
                                                 <td>
                                                     <asp:LinkButton runat="server" OnCommand="creartema" CssClass="" CommandArgument='<%#Eval("idevento") %>' CommandName="creartema">

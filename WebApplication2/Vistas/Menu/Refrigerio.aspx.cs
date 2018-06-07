@@ -22,7 +22,7 @@ namespace PaginaWeb.Vistas.Menu
             if (eventos.SelectedIndex > 0)
             {
                 tex = eventos.SelectedItem.Text;
-                Session["jornadarefri"]= jornada.SelectedItem.Text;
+                Session["jornadarefri"] = jornada.SelectedItem.Text;
                 dtuser = u.consultareventopornombre(tex);
                 if (dtuser.Rows.Count > 0)
                 {
@@ -49,16 +49,28 @@ namespace PaginaWeb.Vistas.Menu
             {
                 Response.Redirect("../Inicio/Login.aspx");
             }
-            dtconsulta = u.ConsultarEventosiniciados();
-            if (dtconsulta.Rows.Count > 0)
+            if (!IsPostBack)
             {
-                drconsulta = dtconsulta.Rows[0];
-                for (int i = 0; i < dtconsulta.Rows.Count; i++)
+                if (Session["rol"].ToString() == "Administrador")
                 {
-                    drconsulta = dtconsulta.Rows[i];
-                    eventos.Items.Add(drconsulta["nombre_e"].ToString().ToUpper());
+                    dtconsulta = u.ConsultarEventosiniciados();
+
+                }
+                else if (Session["rol"].ToString() == "Director Evento")
+                {
+                    dtconsulta = u.ConsultarEventosiniciadosdirector(Convert.ToInt32(Session["IDUSER"].ToString()));
+                }
+                if (dtconsulta.Rows.Count > 0)
+                {
+                    drconsulta = dtconsulta.Rows[0];
+                    for (int i = 0; i < dtconsulta.Rows.Count; i++)
+                    {
+                        drconsulta = dtconsulta.Rows[i];
+                        eventos.Items.Add(drconsulta["nombre_e"].ToString().ToUpper());
+                    }
                 }
             }
+
         }
     }
 }

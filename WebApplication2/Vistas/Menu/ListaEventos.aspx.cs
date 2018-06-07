@@ -27,8 +27,15 @@ namespace PaginaWeb.Vistas.Menu
             }
             if (!IsPostBack)
             {
-                lista.DataSource = u.ConsultarEventos();
-                lista.DataBind();
+                if (Session["rol"].ToString() == "Administrador")
+                {
+                    lista.DataSource = u.ConsultarEventos();
+                    lista.DataBind();
+                }else if (Session["rol"].ToString() == "Director Evento")
+                {
+                    lista.DataSource = u.eventosdirector(Convert.ToInt32(Session["IDUSER"].ToString()));
+                    lista.DataBind();
+                }
             }
         }
         public void Unnamed_Command(object sender, CommandEventArgs e)
@@ -47,7 +54,7 @@ namespace PaginaWeb.Vistas.Menu
                     if (u.registrarevento(iduser, id) == true)
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Su registro fue exitoso');", true);
-                        confirmarinscripcion(Session["correo"].ToString(),buscar(id));
+                        confirmarinscripcion(Session["correo"].ToString(), buscar(id));
                     }
                 }
             }
@@ -57,7 +64,7 @@ namespace PaginaWeb.Vistas.Menu
         {
             if (e.CommandName.Equals("ver"))
             {
-                Session["idtema"]= Convert.ToInt32(e.CommandArgument.ToString());
+                Session["idtema"] = Convert.ToInt32(e.CommandArgument.ToString());
                 a = Convert.ToInt32(e.CommandArgument.ToString());
 
                 Response.Redirect("TemasEvento.aspx");
@@ -143,7 +150,7 @@ namespace PaginaWeb.Vistas.Menu
         }
         public string buscar(int a)
         {
-            string tex="";
+            string tex = "";
             dtuser = u.buscarevento(a);
             if (dtuser.Rows.Count > 0)
             {

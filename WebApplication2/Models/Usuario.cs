@@ -74,6 +74,12 @@ namespace WebProgramacion.Models
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }
+        public DataTable eventosdirector(int iduser)
+        {
+            string sql = "select evento.idevento,date_format(evento.fechafin,' %d-%c-%Y') as fechafin , evento.nombre_e,date_format(evento.fechainicio, ' %d-%c-%Y') as fechainicio,time_format(evento.hora, '%h:%i %p') as horaevento,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario and evento.fechainicio > curdate() and evento.usuario=" +iduser + ";";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
         public DataTable ConsultarEventostodos()
         {
             string sql = "select evento.idevento,date_format(evento.fechafin,' %d-%c-%Y') as fechafin , evento.nombre_e,date_format(evento.fechainicio, ' %d-%c-%Y') as fechainicio,time_format(evento.hora, '%h:%i %p') as horaevento,recurso.tipo, usuario.nombre from evento inner join recurso_evento on evento.idevento=recurso_evento.evento_idevento inner join recurso on recurso_evento.recurso_idrecurso=recurso.idrecurso inner join usuario on usuario.idusuario=evento.usuario;";
@@ -83,6 +89,12 @@ namespace WebProgramacion.Models
         public DataTable ConsultarEventosiniciados()
         {
             string sql = "SELECT * FROM web.evento where fechainicio<=CURDATE() and fechafin>=CURDATE();";
+            return co.EjecutarConsulta(sql, CommandType.Text);
+
+        }
+        public DataTable ConsultarEventosiniciadosdirector(int iduser)
+        {
+            string sql = "SELECT * FROM web.evento where fechainicio<=CURDATE() and fechafin>=CURDATE() and evento.usuario=" + iduser + ";";
             return co.EjecutarConsulta(sql, CommandType.Text);
 
         }

@@ -60,9 +60,13 @@ namespace PaginaWeb.Vistas.Inicio
                         {
                             Session["rol"] = "Usuario";
                         }
-                        else
+                        else if (ro["rol_idrol"].ToString() == "3")
                         {
                             Session["rol"] = "Ponente";
+                        }
+                        else if (ro["rol_idrol"].ToString() == "4")
+                        {
+                            Session["rol"] = "Director Evento";
                         }
                     }
                     Response.Redirect("../Menu/Home.aspx");
