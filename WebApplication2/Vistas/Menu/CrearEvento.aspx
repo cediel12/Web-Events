@@ -36,14 +36,14 @@
             </div>
             <div>
                 <asp:Button ID="Button1" runat="server" EnableTheming="True" class="btn btn-info btn-lg btn-responsive" Text="Registrar" OnClick="Registrar" />
-        <button type="button" id="Button2" class="btn btn-danger btn-lg btn-responsive" data-toggle="modal" data-target="#miventana">Agregar Imagen</button>
-        <div class="modal fade" id="miventana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Cargar imagen</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
+        <Button type="button" ID="Button2" class="btn btn-info btn-lg btn-responsive" data-toggle="modal" data-target="#miventana">Cargar Imagen</button>
+            <div class="modal fade" id="miventana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cargar imagen</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="cargaarchivos.aspx"></iframe>
@@ -52,10 +52,10 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                     </div>
+                  </div>
                 </div>
             </div>
-        </div>
-            </div>
+    </div>
             
         </from>
     </div>

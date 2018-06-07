@@ -280,6 +280,12 @@ namespace WebProgramacion.Models
             sql[0] = "call web.Insertar_imagen('" + nombre + "', '" + ruta + "', '" + fecha + "'," + estado + "," + usu + ");";
             return co.RealizarTransaccion(sql);
         }
+        public bool actualizarimagenevento(string nombreimagen, string ruta, string fecha, int estado, int usu)
+        {
+            string[] sql = new string[1];
+            sql[0] = "call web.Insertar_imagenevento('" + nombre + "', '" + ruta + "', '" + fecha + "'," + estado + "," + usu + ");";
+            return co.RealizarTransaccion(sql);
+        }
         public DataTable Consultarevento(int dia, int mes, int ano)
         {
             string sql = "SELECT DAY(e.fechainicio) as dia,YEAR(e.fechainicio) as ano, e.hora, e.duracion, e.nombre_e FROM web.evento e WHERE MONTH(e.fechainicio) = " + mes + " and YEAR(e.fechainicio) = " + ano + " and DAY(e.fechainicio) = " + dia + " and fechainicio<=curdate() and fechafin>=curdate() ORDER BY DAY(e.fechainicio) asc, e.hora asc ;";

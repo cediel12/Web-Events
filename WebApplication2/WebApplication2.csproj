@@ -778,6 +778,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Vistas\Menu\Home.aspx" />
     <Content Include="Vistas\Menu\MisPagos.aspx" />
+    <Content Include="Vistas\Menu\Saveimagenevento.aspx" />
     <Content Include="Vistas\Menu\SubirPago.aspx" />
     <Content Include="Vistas\Menu\TemasEvento.aspx" />
     <Content Include="Vistas\Reportes\Reporte.aspx" />
@@ -1037,6 +1038,13 @@
     </Compile>
     <Compile Include="Vistas\Menu\MisPagos.aspx.designer.cs">
       <DependentUpon>MisPagos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\Saveimagenevento.aspx.cs">
+      <DependentUpon>Saveimagenevento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Menu\Saveimagenevento.aspx.designer.cs">
+      <DependentUpon>Saveimagenevento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\SubirPago.aspx.cs">
       <DependentUpon>SubirPago.aspx</DependentUpon>

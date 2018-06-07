@@ -43,6 +43,12 @@ namespace PaginaWeb.Vistas.Menu
             {
                 if (u.crearevento(nombre.Text, fechainicio.Text, fechafin.Text, hora.Text, lugar.Text, iddirector) == true)
                 {
+                    dt = u.consultareventopornombre(nombre.Text);
+                    if (dt.Rows.Count>0)
+                    {
+                        drd = dt.Rows[0];
+                        Session["ideventoimagen"]= drd["idevento"];
+                    }
                     ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('El evento se creo correctamente');", true);
                 }
                 else
