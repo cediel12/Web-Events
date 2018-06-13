@@ -12,13 +12,16 @@
             <br />
             <asp:RadioButton ID="Radio4" GroupName="Reportes" Text="Reporte de Tema de Evento" runat="server" OnSelectedIndexChanged="Index_Changed" />
             <br />
-            <%if (Session["rol"].ToString()=="Administrador" || Session["rol"].ToString()=="Director Evento" ) { %>
+            <%if (Session["rol"].ToString() == "Administrador" || Session["rol"].ToString() == "Director Evento")
+                { %>
             <asp:RadioButton ID="Radio3" GroupName="Reportes" Text="Reportes de Usuarios Registrados Por Evento" runat="server" OnSelectedIndexChanged="Index_Changed" />
             <br />
             <asp:RadioButton ID="Radio1" GroupName="Reportes" Text="Participantes Certificados" runat="server" OnSelectedIndexChanged="Index_Changed" />
+            <br />
+            <asp:RadioButton ID="Radio5" GroupName="Reportes" Text="Participantes Asistentes" runat="server" OnSelectedIndexChanged="Index_Changed" />
             <%} %>
             <br />
-            
+
         </div>
         <div class="form-group">
             <asp:DropDownList ID="eventos" class="form-control" AppendDataBoundItems="true" DataTextField="media_name" DataValueField="media_id" runat="server" Visible="false">

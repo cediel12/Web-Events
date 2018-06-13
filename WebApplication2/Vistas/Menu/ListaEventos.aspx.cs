@@ -35,6 +35,10 @@ namespace PaginaWeb.Vistas.Menu
                 {
                     lista.DataSource = u.eventosdirector(Convert.ToInt32(Session["IDUSER"].ToString()));
                     lista.DataBind();
+                }else
+                {
+                    lista.DataSource = u.ConsultarEventos();
+                    lista.DataBind();
                 }
             }
         }

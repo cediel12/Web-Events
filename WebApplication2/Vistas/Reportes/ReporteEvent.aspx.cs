@@ -16,6 +16,7 @@ namespace PaginaWeb.Vistas.Reportes
         EventoReporte reporte;
         UsuariosInscritos user;
         TemasReporte tema;
+        Asistentes asis;
         AsistenciaEventoReporte asistente;
         Certificad certi;
         Usuario u;
@@ -31,7 +32,7 @@ namespace PaginaWeb.Vistas.Reportes
             asistente = new AsistenciaEventoReporte();
             certi = new Certificad();
             u = new Usuario();
-
+            asis = new Asistentes();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,7 +45,7 @@ namespace PaginaWeb.Vistas.Reportes
 
         protected void ver(Object sender, EventArgs e)
         {
-            if (Radio3.Checked || Radio4.Checked || Radio1.Checked)
+            if (Radio3.Checked || Radio4.Checked || Radio1.Checked || Radio5.Checked)
             {
                 dtconsulta = u.ConsultarEventostodos();
                 if (dtconsulta.Rows.Count > 0)
@@ -134,7 +135,29 @@ namespace PaginaWeb.Vistas.Reportes
                 }
             }
             
-            else
+            else if (Radio5.Checked && (eventos.SelectedIndex > 0))
+            {
+                int a = 0;
+                string tex = "";
+                if (eventos.SelectedIndex > 0)
+                {
+                    tex = eventos.SelectedItem.Text;
+                    dtuser = u.consultareventopornombre(tex);
+                    if (dtuser.Rows.Count > 0)
+                    {
+                        druser = dtuser.Rows[0];
+                        a = Convert.ToInt32(druser["idevento"]);
+                    }
+                    data = u.consultarasistentes(a);
+                    asis.SetDataSource(data);
+                    asis.SetParameterValue("Mi parámetro", tex);
+                    CrystalReportViewer1.ReportSource = asis;
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Seleccione un Evento');", true);
+                }
+            }else
             if (Radio2.Checked)
             {
                 data = u.ConsultarEventos();
